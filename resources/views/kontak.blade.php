@@ -1,13 +1,13 @@
 @extends('template')
 @section('content')
     <div class="container mt-5">
-        <div class="row">
-            <div class="col d-flex flex-column justify-content-center">
+        <div class="row-ex">
+            <div class="col-6 d-flex flex-column justify-content-center">
                 <h5 class="">Kontak</h5>
                 <ul class="list-unstyled">
-                    <li>Email : info@sman6jkt.sch.id</li>
-                    <li>Telpon : 021-7208762</li>
-                    <li>Alamat : Jl. Mahakam 1 Blok C No. 2</li>
+                    <li>Email : sman2spa@gmail.com</li>
+                    <li>Telpon : 082213331933</li>
+                    <li>Alamat : Jln. Kp. Pameungpeuk</li>
                     <li class="mt-2">Ikuti Sosial Media Kami</li>
                 </ul>
                 <div class="d-flex gap-3 justify-content-center justify-content-md-start">
@@ -18,7 +18,7 @@
                 </div>
                 <img src="{{asset('asset/image/undraw_contact-us_kcoa.svg')}}" width="280" height="280" style="object-fit: contain" alt="">
             </div>
-            <div class="col d-flex flex-column justify-content-center">
+            <div class="col-6 d-flex flex-column justify-content-center">
                 <h3 class="mb-4">Hubungi Kami</h3>
                 <p>Jika Anda memiliki pertanyaan, saran, atau ingin menghubungi kami, silakan isi formulir di bawah ini. Kami akan dengan senang hati membantu Anda.</p>
                 <form action="POST">
@@ -37,6 +37,7 @@
                     </div>
                     <a href="/galeri" class="btn btn-primary px-5" style="background-color: #6D326D; border: none; border-radius: 15px;">Kirim</a>
                 </form>
+            </div>
         </div>
     </div>
 @endsection

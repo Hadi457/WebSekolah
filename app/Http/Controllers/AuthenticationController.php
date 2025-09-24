@@ -7,12 +7,12 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthenticationController extends Controller
 {
-    public function auth()
+    public function Auth()
     {
         return view('login');
     }
 
-    public function authentication(Request $request)
+    public function Authentication(Request $request)
     {
         $validated = $request->validate([
             'username' => 'required',
@@ -31,7 +31,7 @@ class AuthenticationController extends Controller
         }
     }
 
-    public function logout()
+    public function Logout()
     {
         Auth::logout();
         return redirect('/login');

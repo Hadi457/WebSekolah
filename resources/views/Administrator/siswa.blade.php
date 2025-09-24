@@ -1,31 +1,108 @@
 @extends('Administrator.template')
 @section('content')
-    <h1 class="fw-bold">Siswa</h1>
-    <table class="table">
-        <thead class="table-dark">
-        <div style="background-color: #003F91;" class="text-white p-3 mb-3">
-
-            <tr>
+<div class="h-100">
+    <div class="d-flex justify-content-between align-items-center">
+        <h3 class="fw-bold py-3">Siswa</h3>
+        <a href="#" class="btn btn-primary d-flex align-items-center py-3" style="background-color: #6D326D; height: 25px; border: none; border-radius: 25px;">+ Tambah Siswa</a>
+    </div>
+    <div class="bg-light p-3 rounded" style="height: 600px;">
+        <table id="example" class="table table-striped">
+            <thead>
+                <tr>
+                <th>Id</th>
                 <th>Nisn</th>
-                <th>Nama Siswa</th>
+                <th class="text-center">Nama Siswa</th>
                 <th>Jenis Kelamin</th>
                 <th>Tahun Masuk</th>
-            </tr>
-        </div>
-        </thead>
-        <tbody>
-        <tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>john@example.com</td>
-            <td>john@example.com</td>
-        </tr>
-        <tr>
-            <td>Mary</td>
-            <td>Moe</td>
-            <td>mary@example.com</td>
-            <td>mary@example.com</td>
-        </tr>
-        </tbody>
-    </table>
+                <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>008899</td>
+                    <td>Hadi</td>
+                    <td>Laki Laki</td>
+                    <td>2025</td>
+                    <td>
+                        a
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>008899</td>
+                    <td>Hadi</td>
+                    <td>Laki Laki</td>
+                    <td>2025</td>
+                    <td>
+                        a
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>008899</td>
+                    <td>Hadi</td>
+                    <td>Laki Laki</td>
+                    <td>2025</td>
+                    <td>
+                        a
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>008899</td>
+                    <td>Hadi</td>
+                    <td>Laki Laki</td>
+                    <td>2025</td>
+                    <td>
+                        a
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>008899</td>
+                    <td>Hadi</td>
+                    <td>Laki Laki</td>
+                    <td>2025</td>
+                    <td>
+                        a
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>008899</td>
+                    <td>Hadi</td>
+                    <td>Laki Laki</td>
+                    <td>2025</td>
+                    <td>
+                        a
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>008899</td>
+                    <td>Hadi</td>
+                    <td>Laki Laki</td>
+                    <td>2025</td>
+                    <td>
+                        a
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>008899</td>
+                    <td>Hadi</td>
+                    <td>Laki Laki</td>
+                    <td>2025</td>
+                    <td>
+                        a
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+        new DataTable('#example');
+    </script>
 @endsection

@@ -25,8 +25,8 @@
                 <div class="card shadow p-5 rounded-5" style="width: 600px;">
                     <div class="card-body">
                         <div class="col d-flex flex-column justify-content-center align-items-center mb-4">
-                            <img src="{{asset('asset/image/sman6logo.png')}}" width="100" height="100" alt="">
-                            <h3 class="text-center mb-4 mt-3 fw-semibold">SMA N 6 Jakarta</h3>
+                            <img src="{{asset('asset/image/smandas.png')}}" width="100" height="100" alt="">
+                            <h3 class="text-center mb-4 mt-3 fw-semibold">SMA N </h3>
                         </div>
                         @if (session('pesan'))
                             <div class="alert alert-danger">
