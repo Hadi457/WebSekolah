@@ -14,6 +14,8 @@ Route::get('/profile-sekolah', [SchoolProfileController::class,'Index'])->name('
 Route::get('/eskul', [ExtracurricularController::class, 'Index'])->name('eskul');
 Route::get('/eskul/detail', [ExtracurricularController::class, 'EskulDetail'])->name('eskul-detail');
 Route::get('/galeri', [GalleryController::class, 'Index'])->name('galeri');
+Route::get('/galeri/create', [GalleryController::class, 'create'])->name('galeri-create');
+Route::get('/galeri/store', [GalleryController::class, 'store'])->name('galeri-store');
 Route::get('/kontak', [ContactController::class, 'Index'])->name('kontak');
 Route::get('/berita', [NewsController::class, 'Index'])->name('berita');
 

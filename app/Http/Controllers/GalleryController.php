@@ -10,4 +10,7 @@ class GalleryController extends Controller
     {
         return view('galeri');
     }
+    public function store(){
+        
+    }
 }

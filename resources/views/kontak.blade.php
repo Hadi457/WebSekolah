@@ -1,7 +1,7 @@
 @extends('template')
 @section('content')
     <div class="container mt-5">
-        <div class="row-ex">
+        <div class="row">
             <div class="col-6 d-flex flex-column justify-content-center">
                 <h5 class="">Kontak</h5>
                 <ul class="list-unstyled">

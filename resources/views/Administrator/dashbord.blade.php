@@ -1,11 +1,11 @@
 @extends('Administrator.template')
 @section('content')
-<div class="h-100 p-3">
-    <h3 class="fw-bold">Dashbord</h3>
-    <div class="row">
-        <div class="col">
-                <i class="fa-solid fa-user rounded-5 p-5" style="background-color: #f3e8ff; color: #9333ea;"></i>
-        </div>
+<div class="h-100">
+    <div class="d-flex justify-content-between align-items-center px-3" style="border-top-left-radius: 10px; border-top-right-radius: 10px; background-color: #003F91;">
+        <h3 class="fw-bold py-3 text-white">Dashboard</h3>
+    </div>
+    <div class="bg-light p-3 rounded" style="height: 600px;">
+        
     </div>
 </div>
 @endsection
