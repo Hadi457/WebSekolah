@@ -3,37 +3,27 @@
     <div class="container mt-5">
         <h1 class="fw-bold">Galeri</h1>
         <hr>
-        <div class="row">
-            <div class="col d-flex flex-column justify-content-center">
-                <img src="{{asset('asset/image/1.jpg')}}" width="350" height="350" style="object-fit: contain" alt="">
-                <h3 style="margin-top: -50px;">Lorem</h3>
-                <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-            <div class="col d-flex flex-column justify-content-center">
-                <img src="{{asset('asset/image/2.jpg')}}" width="350" height="350" style="object-fit: contain" alt="">
-                <h3 style="margin-top: -50px;">Lorem</h3>
-                <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-            <div class="col d-flex flex-column justify-content-center">
-                <img src="{{asset('asset/image/3.jpg')}}" width="350" height="350" style="object-fit: contain" alt="">
-                <h3 style="margin-top: -50px;">Lorem</h3>
-                <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-            <div class="col d-flex flex-column justify-content-center">
-                <img src="{{asset('asset/image/4.jpg')}}" width="350" height="350" style="object-fit: contain" alt="">
-                <h3 style="margin-top: -50px;">Lorem</h3>
-                <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-            <div class="col d-flex flex-column justify-content-center">
-                <img src="{{asset('asset/image/1.jpg')}}" width="350" height="350" style="object-fit: contain" alt="">
-                <h3 style="margin-top: -50px;">Lorem</h3>
-                <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-            <div class="col d-flex flex-column justify-content-center">
-                <img src="{{asset('asset/image/1.jpg')}}" width="350" height="350" style="object-fit: contain" alt="">
-                <h3 style="margin-top: -50px;">Lorem</h3>
-                <p>Lorem ipsum dolor sit amet.</p>
-            </div>
+        <div class="row mt-5">
+            @foreach ($galeri as $item)
+                <div class="col-lg-4 col-md-6 mb-4 d-flex flex-column justify-content-center">
+                    @if ($item->kategeori == 'Foto')
+                        {{-- Jika kategori Foto --}}
+                        <div style="height: 350px; border-radius:10px; overflow:hidden; position:relative;">
+                            <img src="{{ asset('storage/gallery/'.$item->file) }}" height="100%" width="100%" class="img-fluid" style="object-fit: contain" alt="">
+                        </div>
+                    @else
+                        {{-- Jika kategori Video --}}
+                        <div style="height: 350px; border-radius:10px; overflow:hidden; position:relative;">
+                            <video width="100%" height="100%" controls style="object-fit: cover;">
+                                <source src="{{ asset('storage/gallery/'.$item->file) }}" type="video/mp4">
+                                Browser kamu tidak mendukung video.
+                            </video>
+                        </div>
+                    @endif
+                    <h3 style="margin-top: 20px;">{{ $item->judul }}</h3>
+                    <p>{{ $item->keterangan }}</p>
+                </div>
+            @endforeach
         </div>
     </div>
 @endsection

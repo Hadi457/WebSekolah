@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('extracurriculars', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_ekskul');
+            $table->string('nama_eskul');
             $table->string('pembina');
             $table->string('jadwal_latihan');
             $table->text('deskripsi');

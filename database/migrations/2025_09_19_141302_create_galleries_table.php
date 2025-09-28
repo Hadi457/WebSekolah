@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('judul');
             $table->text('keterangan');
             $table->string('file');
-            $table->enum('kategeori', ['Foto', 'Video']);
+            $table->enum('kategori', ['Foto', 'Video']);
             $table->date('tanggal');
             $table->timestamps();
         });
