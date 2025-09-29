@@ -64,50 +64,52 @@
                 </ul>
             </div>
         @endif
-        <div class="bg-light p-3 rounded" style="height: 600px;">
-            <table id="example" class="table table-responsive table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Judul</th>
-                        <th scope="col">Keterangan</th>
-                        <th scope="col">File</th>
-                        <th scope="col">Kategori</th>
-                        <th scope="col">Tanggal</th>
-                        <th scope="col">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($galeri as $item)    
+        <div class="bg-light p-3 rounded">
+            <div class="table-responsive">
+                <table id="example" class="table w-100 table-striped">
+                    <thead>
                         <tr>
-                            <td scope="row">{{$item->judul}}</td>
-                            <td>{{$item->keterangan}}</td>
-                            <td>
-                                @if ($item->kategori == 'Foto')
-                                    <img src="{{ asset('storage/gallery/' . $item->file) }}" alt="Foto" style="height: 100px; max-width: 100px; border-radius:10px;">
-                                @else
-                                    <div style="height: 100px; max-width: 100px; border-radius:10px; overflow:hidden;">
-                                        <video width="100%" height="100%" controls style="object-fit: cover;">
-                                            <source src="{{ asset('storage/gallery/'.$item->file) }}" type="video/mp4">
-                                        </video>
-                                    </div>
-                                @endif
-                            </td>
-                            <td>{{$item->kategori}}</td>
-                            <td>{{$item->tanggal}}</td>
-                            <td>
-                                <a class="btn btn-danger" href="{{route('galeri-delete',Crypt::encrypt($item->id))}}" onclick="return confirm('Hapus data ini?')">
-                                    <i class="fa-solid fa-trash"></i>
-                                </a>
-                            </td>
+                            <th scope="col">Judul</th>
+                            <th scope="col">Keterangan</th>
+                            <th scope="col">File</th>
+                            <th scope="col">Kategori</th>
+                            <th scope="col">Tanggal</th>
+                            <th scope="col">Aksi</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($galeri as $item)    
+                            <tr>
+                                <td scope="row">{{$item->judul}}</td>
+                                <td>{{$item->keterangan}}</td>
+                                <td>
+                                    @if ($item->kategori == 'Foto')
+                                        <img src="{{ asset('storage/gallery/' . $item->file) }}" alt="Foto" style="height: 100px; max-width: 100px; border-radius:10px;">
+                                    @else
+                                        <div style="height: 100px; max-width: 100px; border-radius:10px; overflow:hidden;">
+                                            <video width="100%" height="100%" controls style="object-fit: cover;">
+                                                <source src="{{ asset('storage/gallery/'.$item->file) }}" type="video/mp4">
+                                            </video>
+                                        </div>
+                                    @endif
+                                </td>
+                                <td>{{$item->kategori}}</td>
+                                <td>{{$item->tanggal}}</td>
+                                <td>
+                                    <a class="btn btn-danger" href="{{route('galeri-delete',Crypt::encrypt($item->id))}}" onclick="return confirm('Hapus data ini?')">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 <script>
     new DataTable('#example', {
-        scrollY: '410px',
+        scrollY: '',
     });
 </script>
 @endsection

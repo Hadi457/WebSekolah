@@ -60,33 +60,35 @@
                 </ul>
             </div>
         @endif
-        <div class="bg-light p-3 rounded" style="height: 600px;">
-            <table id="example" class="table table-responsive table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">NISN</th>
-                        <th scope="col">Nama Siswa</th>
-                        <th scope="col">Jenis Kelamin</th>
-                        <th scope="col">Tahun Masuk</th>
-                        <th scope="col">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($siswa as $item)    
+        <div class="bg-light p-3 rounded">
+            <div class="table-responsive">
+                <table id="example" class="table w-100 table-striped">
+                    <thead>
                         <tr>
-                            <td scope="row">{{$item->nisn}}</td>
-                            <td>{{$item->nama_siswa}}</td>
-                            <td>{{$item->jenis_kelamin}}</td>
-                            <td>{{$item->tahun_masuk}}</td>
-                            <td>
-                                <a class="btn btn-danger" href="{{route('siswa-delete',Crypt::encrypt($item->id))}}" onclick="return confirm('Hapus data ini?')">
-                                    <i class="fa-solid fa-trash"></i>
-                                </a>
-                            </td>
+                            <th scope="col">NISN</th>
+                            <th scope="col">Nama Siswa</th>
+                            <th scope="col">Jenis Kelamin</th>
+                            <th scope="col">Tahun Masuk</th>
+                            <th scope="col">Aksi</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($siswa as $item)    
+                            <tr>
+                                <td scope="row">{{$item->nisn}}</td>
+                                <td>{{$item->nama_siswa}}</td>
+                                <td>{{$item->jenis_kelamin}}</td>
+                                <td>{{$item->tahun_masuk}}</td>
+                                <td>
+                                    <a class="btn btn-danger" href="{{route('siswa-delete',Crypt::encrypt($item->id))}}" onclick="return confirm('Hapus data ini?')">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 <script>

@@ -88,6 +88,21 @@
                 <i class="bi bi-pencil-square me-2"></i> Edit Profile
             </button>
         </div>
+        @if (Session::get('sukses') !==  null)
+            <div class="alert mt-4 alert-success alert-dismissible">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                {{ Session::get('sukses') }}
+            </div>  
+        @endif
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="bg-light p-4 rounded-bottom" style="min-height: 600px;">
             <div class="card bg-light mt-5" style="border: none;">
                 <div class="card-body">

@@ -22,7 +22,10 @@
                         Kami tidak hanya mengedepankan akademik, tetapi juga karakter, kreativitas, 
                         dan kepedulian sosial untuk menyiapkan siswa menghadapi masa depan.
                     </p>
-                    <a href="#news" class="btn btn-primary p-3" style="background-color: #6D326D; border: none; border-radius: 25px; width: 250px;">Jelajahi Sekolah</a>
+                    <a href="#news" class="btn btn-primary w-100 w-md-auto" 
+                        style="background-color: #6D326D; border: none; border-radius: 20px; padding: 10px 20px; max-width: 220px; min-width: 150px;">
+                        Jelajahi Sekolah
+                    </a>
                 </div>
                 <div class="col-lg-6 d-flex justify-content-center align-items-center gap-3">
                     <img src="{{asset('asset/image/team-presentation-7-74.svg')}}" class="img-fluid w-80" height="100%" alt="">
@@ -77,23 +80,32 @@
         </div>
     </div>
     <img src="{{asset('asset/image/wave-haikei (2).svg')}}" class="img-fluid" alt="" style="width: 100%;">
-    <div class="p-5" style="background-color: #003F91;">
+    <div class="p-3 p-md-5" style="background-color: #003F91;">
         <div class="container">
-            <div class="d-flex justify-content-center align-items-center">
+            <div class="text-center mb-4 mb-md-5">
                 <h3 class="text-white">Jumlah Siswa dan Guru</h3>
             </div>
-            <div class="row d-flex justify-content-center align-items-center m-5 gap-5">
-                <div class="col-lg-6 col-md-6 d-flex justify-content-center align-items-center flex-column shadow" style="width: 300px; height: 180px; border-radius: 20px; background-color: #5DA9E9; color: white;">
-                    <h3>Jumlah Guru</h3>
-                    <h1 class="fw-bold">33</h1>
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="text-center shadow p-5 mx-auto" 
+                        style="border-radius: 20px; background-color: #5DA9E9; color: white; max-width: 300px; min-height: 160px;">
+                        <h4>Jumlah Guru</h4>
+                        <h1 class="fw-bold mt-2">33</h1>
+                    </div>
                 </div>
-                <div class="col-lg-6 col-md-6 d-flex justify-content-center align-items-center flex-column shadow" style="width: 300px; height: 180px; border-radius: 20px; background-color: #5DA9E9; color: white;">
-                    <h3>Jumlah Siswa</h3>
-                    <h1 class="fw-bold">333</h1>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="text-center shadow p-5 mx-auto" 
+                        style="border-radius: 20px; background-color: #5DA9E9; color: white; max-width: 300px; min-height: 160px;">
+                        <h4>Jumlah Siswa</h4>
+                        <h1 class="fw-bold mt-2">333</h1>
+                    </div>
                 </div>
-                <div class="col-lg-6 col-md-6 d-flex justify-content-center align-items-center flex-column shadow" style="width: 300px; height: 180px; border-radius: 20px; background-color: #5DA9E9; color: white;">
-                    <h3>Eskul</h3>
-                    <h1 class="fw-bold">33</h1>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="text-center shadow p-5 mx-auto" 
+                        style="border-radius: 20px; background-color: #5DA9E9; color: white; max-width: 300px; min-height: 160px;">
+                        <h4>Eskul</h4>
+                        <h1 class="fw-bold mt-2">33</h1>
+                    </div>
                 </div>
             </div>
         </div>
@@ -134,7 +146,10 @@
             @endforeach
         </div>
         <div class="d-flex justify-content-center align-items-center m-5 flex-column">
-            <a href="/galeri" class="btn btn-primary p-3 m-1" style="background-color: #6D326D; border: none; border-radius: 25px; width: 250px;">Lihat Galeri</a>
+            <a href="/galeri" class="btn btn-primary w-100 w-md-auto" 
+                style="background-color: #6D326D; border: none; border-radius: 20px; padding: 10px 20px; max-width: 220px; min-width: 150px;">
+                Lihat Galeri
+            </a>
         </div>
     </div>
     <div class="container">
@@ -159,7 +174,10 @@
                 <p>
                     Bergabunglah dengan kami di SMA Negri 6 Jakarta, di mana masa depan gemilang dimulai dari sini.
                 </p>
-                <a href="/profile-sekolah" class="btn btn-primary p-3 mt-3" style="background-color: #6D326D; border: none; border-radius: 25px; width: 250px;">Pelajari Lebih Lanjut</a>
+                <a href="/profile-sekolah" class="btn btn-primary w-100 w-md-auto" 
+                    style="background-color: #6D326D; border: none; border-radius: 20px; padding: 10px 20px; max-width: 220px; min-width: 150px;">
+                    Pelajari Lebih Lanjut
+                </a>
             </div>
         </div>
     </div>

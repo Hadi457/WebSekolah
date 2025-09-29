@@ -57,35 +57,37 @@
                 </ul>
             </div>
         @endif
-        <div class="bg-light p-3 rounded" style="height: 600px;">
-            <table id="example" class="table table-responsive table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Judul</th>
-                        <th scope="col">Isi</th>
-                        <th scope="col">Tangal</th>
-                        <th scope="col">Gambar</th>
-                        <th scope="col">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($berita as $item)
+        <div class="bg-light p-3 rounded min-vh-100">
+            <div class="table-responsive ">
+                <table id="example" class="table w-100 table-striped">
+                    <thead>
                         <tr>
-                            <td scope="row">{{$item->judul}}</td>
-                            <td>{{$item->isi}}</td>
-                            <td>{{$item->tanggal}}</td>
-                            <td>
-                                <img src="{{asset('storage/news-image/'.$item->gambar)}}" width="100" height="100" alt="">
-                            </td>
-                            <td>
-                                <a class="btn btn-danger" href="{{route('berita-delete',Crypt::encrypt($item->id))}}" onclick="return confirm('Hapus data ini?')">
-                                    <i class="fa-solid fa-trash"></i>
-                                </a>
-                            </td>
+                            <th scope="col">Judul</th>
+                            <th scope="col">Isi</th>
+                            <th scope="col">Tangal</th>
+                            <th scope="col">Gambar</th>
+                            <th scope="col">Aksi</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($berita as $item)
+                            <tr>
+                                <td scope="row">{{$item->judul}}</td>
+                                <td>{{$item->isi}}</td>
+                                <td>{{$item->tanggal}}</td>
+                                <td>
+                                    <img src="{{asset('storage/news-image/'.$item->gambar)}}" width="100" height="100" alt="">
+                                </td>
+                                <td>
+                                    <a class="btn btn-danger" href="{{route('berita-delete',Crypt::encrypt($item->id))}}" onclick="return confirm('Hapus data ini?')">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 <script>
