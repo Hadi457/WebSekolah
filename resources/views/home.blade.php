@@ -107,7 +107,7 @@
         <div class="row">
             @foreach ($galeri as $item)
                 <div class="col-lg-4 col-md-6 mb-3">
-                    @if ($item->kategeori == 'Foto')
+                    @if ($item->kategori == 'Foto')
                         {{-- Jika kategori Foto --}}
                         <div style="height: 300px; border-radius:10px; background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0)), 
                                         url('{{ asset('storage/gallery/'.$item->file)}}'); background-size: cover; background-position: center;" class="shadow">
