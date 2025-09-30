@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,21 +19,44 @@
             }
             .nav-link {
                 color: white;
-
             }
             .nav-link:hover {
                 color: #5DA9E9;
             }
+            @media (max-width: 768px) {
+                .navbar-brand h3 {
+                    font-size: 1.1rem;
+                }
+                
+                .footer .col-md-4 {
+                    margin-bottom: 2rem;
+                }
+                
+                .social-icons a {
+                    font-size: 1.3rem;
+                }
+            }
             
+            @media (max-width: 576px) {
+                .navbar-brand h3 {
+                    font-size: 1rem;
+                }
+                
+                .nav-link {
+                    padding: 0.5rem 1rem;
+                    text-align: center;
+                }
+            }
         </style>
     </head>
     <body>
-        <div class="container-fluid navbars fixed-top p-2">
+        <div class="container-fluid navbars fixed-top py-2">
             <div class="container">
-                <div class="d-flex justify-content-between align-items-center p-3 navbar navbar-expand-lg">
-                    <div class="d-flex align-items-center gap-3 justify-content-center">
-                        <img src="{{ asset('asset/image/sman6logo.png')}}" class="img-fluid" width="50" height="50" alt="">
-                        <h3 class="text-white mb-0">SMA Negri 6 Jakarta</h3>
+                <nav class="navbar navbar-expand-lg py-2">
+                    <div class="d-flex align-items-center gap-3">
+                        <img src="{{ asset('asset/image/sman6logo.png')}}" class="img-fluid" width="45" height="45" alt="">
+                        <h3 class="text-white mb-0 d-none d-sm-block">SMA Negri 6 Jakarta</h3>
+                        <h3 class="text-white mb-0 d-block d-sm-none">SMA 6 Jakarta</h3>
                     </div>
                     <!-- tombol toggler -->
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -42,7 +67,7 @@
                     </button>
                     <!-- menu -->
                     <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-auto text-white">
+                        <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
                                 <a class="nav-link" href="/">Beranda</a>
                             </li>
@@ -66,24 +91,26 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </nav>
             </div>
         </div>
-        <div class="container-fluid" style="margin-top: 97px; padding-top: 1px; padding-left: 0; padding-right: 0; overflow: hidden;">
+        
+        <div class="container-fluid" style="margin-top: 60px; padding-top: 1px; padding-left: 0; padding-right: 0;">
             @yield('content')
         </div>
-        <footer class="footer mt-5 text-white pt-5 pb-3" style="background-color: #003F91">
+        
+        <footer class="footer text-white pt-5 pb-3" style="background-color: #003F91">
             <div class="container">
                 <div class="row text-center text-md-start">
                     <div class="col-md-4 mb-4">
                         <h5 class="fw-bold">Tentang Kami</h5>
-                        <p>
+                        <p class="small">
                         SMA N 6 Jakarta adalah institusi pendidikan yang berkomitmen untuk memberikan pendidikan berkualitas tinggi dan membentuk karakter siswa menjadi individu yang berprestasi dan bertanggung jawab.
                         </p>
                     </div>
                     <div class="col-md-4 mb-4">
                         <h5 class="fw-bold">Navigasi</h5>
-                        <ul class="list-unstyled">
+                        <ul class="list-unstyled small">
                             <li><a href="#" class="text-white text-decoration-none">Beranda</a></li>
                             <li><a href="#" class="text-white text-decoration-none">Profil Sekolah</a></li>
                             <li><a href="#" class="text-white text-decoration-none">Ekstrakulikuler</a></li>
@@ -92,22 +119,22 @@
                     </div>
                     <div class="col-md-4 mb-4">
                         <h5 class="fw-bold">Kontak</h5>
-                        <ul class="list-unstyled">
+                        <ul class="list-unstyled small">
                             <li>Email : info@sman6jkt.sch.id</li>
                             <li>Telpon : 021-7208762</li>
                             <li>Alamat : Jl. Mahakam 1 Blok C No. 2</li>
                             <li class="mt-3">Ikuti Sosial Media Kami</li>
                         </ul>
-                        <div class="d-flex gap-3 justify-content-center justify-content-md-start">
-                            <a href="#" class="text-white"><i class="fab fa-facebook fa-2x"></i></a>
-                            <a href="#" class="text-white"><i class="fab fa-twitter fa-2x"></i></a>
-                            <a href="#" class="text-white"><i class="fab fa-instagram fa-2x"></i></a>
-                            <a href="#" class="text-white"><i class="fab fa-youtube fa-2x"></i></a>
+                        <div class="d-flex gap-3 justify-content-center justify-content-md-start social-icons">
+                            <a href="#" class="text-white"><i class="fab fa-facebook fa-lg"></i></a>
+                            <a href="#" class="text-white"><i class="fab fa-twitter fa-lg"></i></a>
+                            <a href="#" class="text-white"><i class="fab fa-instagram fa-lg"></i></a>
+                            <a href="#" class="text-white"><i class="fab fa-youtube fa-lg"></i></a>
                         </div>
                     </div>
                 </div>
-                <hr class="border-white">
-                <p class="text-center m-0">&copy; 2025 SMA Negri 6 Jakarta. All rights reserved.</p>
+                <hr class="border-white my-4">
+                <p class="text-center m-0 small">&copy; 2025 SMA Negri 6 Jakarta. All rights reserved.</p>
             </div>
         </footer>
     </body>

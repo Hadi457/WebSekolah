@@ -60,40 +60,44 @@
                 </ul>
             </div>
         @endif
-        <div class="bg-light p-3 rounded" style="height: 600px;">
-            <table id="example" class="table table-responsive table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Nama</th>
-                        <th scope="col">Username</th>
-                        <th scope="col">Role</th>
-                        <th scope="col">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($user as $item)
+        <div class="bg-light p-3 rounded">
+            <div class="table-responsive">
+                <table id="example" class="table table-striped w-100">
+                    <thead>
                         <tr>
-                            <td scope="row">{{$item->nama}}</td>
-                            <td>{{$item->username}}</td>
-                            <td>
-                                @if($item->role == 'Admin')
-                                    <span class="badge px-3" style="background-color: #A7D2F4; color: #213b4d;">Admin</span>
-                                @elseif($item->role == 'Operator')
-                                    <span class="badge px-3" style="background-color: #ffaeff; color: #421D42;">Operator</span>
-                                @endif
-                            </td>
-                            <td>
-                                <a class="btn text-white" style="background-color: #ff595e;" href="{{route('user-delete',Crypt::encrypt($item->id))}}" onclick="return confirm('Hapus data ini?')">
-                                    <i class="fa-solid fa-trash"></i>
-                                </a>
-                            </td>
+                            <th scope="col">Nama</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Role</th>
+                            <th scope="col">Aksi</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($user as $item)
+                            <tr>
+                                <td scope="row">{{$item->nama}}</td>
+                                <td>{{$item->username}}</td>
+                                <td>
+                                    @if($item->role == 'Admin')
+                                        <span class="badge px-3" style="background-color: #A7D2F4; color: #213b4d;">Admin</span>
+                                    @elseif($item->role == 'Operator')
+                                        <span class="badge px-3" style="background-color: #ffaeff; color: #421D42;">Operator</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    <a class="btn text-white" style="background-color: #ff595e;" href="{{route('user-delete',Crypt::encrypt($item->id))}}" onclick="return confirm('Hapus data ini?')">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 <script>
-    new DataTable('#example');
+    new DataTable('#example',{
+        responsive: true
+    });
 </script>
 @endsection

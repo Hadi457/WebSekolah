@@ -61,37 +61,39 @@
                 </ul>
             </div>
         @endif
-        <div class="bg-light p-3 rounded" style="height: 600px;">
-            <table id="example" class="table table-responsive table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Nama Eskul</th>
-                        <th scope="col">Pembina</th>
-                        <th scope="col">Jadwal Latihan</th>
-                        <th scope="col">Deskripsi</th>
-                        <th scope="col">Gambar</th>
-                        <th scope="col">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($eskul as $item)
+        <div class="bg-light p-3 rounded">
+            <div class="table-responsive">
+                <table id="example" class="table w-100 table-striped">
+                    <thead>
                         <tr>
-                            <td scope="row">{{$item->nama_eskul}}</td>
-                            <td>{{$item->pembina}}</td>
-                            <td>{{$item->jadwal_latihan}}</td>
-                            <td>{{$item->deskripsi}}</td>
-                            <td>
-                                <img src="{{asset('storage/extracurricular-image/'.$item->gambar)}}" width="100" height="100" class="img-fluid" alt="">
-                            </td>
-                            <td>
-                                <a class="btn btn-danger" href="{{route('eskul-delete',Crypt::encrypt($item->id))}}" onclick="return confirm('Hapus data ini?')">
-                                    <i class="fa-solid fa-trash"></i>
-                                </a>
-                            </td>
+                            <th scope="col">Nama Eskul</th>
+                            <th scope="col">Pembina</th>
+                            <th scope="col">Jadwal Latihan</th>
+                            <th scope="col">Deskripsi</th>
+                            <th scope="col">Gambar</th>
+                            <th scope="col">Aksi</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($eskul as $item)
+                            <tr>
+                                <td scope="row">{{$item->nama_eskul}}</td>
+                                <td>{{$item->pembina}}</td>
+                                <td>{{$item->jadwal_latihan}}</td>
+                                <td>{{$item->deskripsi}}</td>
+                                <td>
+                                    <img src="{{asset('storage/extracurricular-image/'.$item->gambar)}}" width="100" height="100" class="img-fluid" alt="">
+                                </td>
+                                <td>
+                                    <a class="btn btn-danger" href="{{route('eskul-delete',Crypt::encrypt($item->id))}}" onclick="return confirm('Hapus data ini?')">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 <script>

@@ -57,35 +57,37 @@
                 </ul>
             </div>
         @endif
-        <div class="bg-light p-3 rounded" style="height: 600px;">
-            <table id="example" class="table table-responsive table-striped" style="height: 100%;">
-                <thead>
-                    <tr>
-                        <th scope="col">NIP</th>
-                        <th scope="col">Nama Guru</th>
-                        <th scope="col">Mapel</th>
-                        <th scope="col">Foto</th>
-                        <th scope="col">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($guru as $item)   
+        <div class="bg-light p-3 rounded">
+            <div class="table-responsive">
+                <table id="example" class="table w-100 table-striped">
+                    <thead>
                         <tr>
-                            <td scope="row">{{$item->nip}}</td>
-                            <td>{{$item->nama_guru}}</td>
-                            <td>{{$item->mapel}}</td>
-                            <td>
-                                <img src="{{asset('storage/foto-teacher/'.$item->foto)}}" width="100" height="100" style="object-fit: cover;" alt="">
-                            </td>
-                            <td>
-                                <a class="btn btn-danger" href="{{route('guru-delete',Crypt::encrypt($item->id))}}" onclick="return confirm('Hapus data ini?')">
-                                    <i class="fa-solid fa-trash"></i>
-                                </a>
-                            </td>
+                            <th scope="col">NIP</th>
+                            <th scope="col">Nama Guru</th>
+                            <th scope="col">Mapel</th>
+                            <th scope="col">Foto</th>
+                            <th scope="col">Aksi</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($guru as $item)   
+                            <tr>
+                                <td scope="row">{{$item->nip}}</td>
+                                <td>{{$item->nama_guru}}</td>
+                                <td>{{$item->mapel}}</td>
+                                <td>
+                                    <img src="{{asset('storage/foto-teacher/'.$item->foto)}}" width="100" height="100" style="object-fit: cover;" alt="">
+                                </td>
+                                <td>
+                                    <a class="btn btn-danger" href="{{route('guru-delete',Crypt::encrypt($item->id))}}" onclick="return confirm('Hapus data ini?')">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 <script>
