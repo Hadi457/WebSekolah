@@ -22,7 +22,6 @@ class GalleryController extends Controller
             'keterangan' => 'required|string',
             'file'       => 'required|file|mimes:jpg,jpeg,png,webp,mp4,mov,avi|max:10240',
             'kategori'  => 'required|in:Foto,Video',
-            'tanggal'    => 'required|date',
         ]);
 
         // Upload & simpan gambar ke folder storage/gallery-image
@@ -30,6 +29,8 @@ class GalleryController extends Controller
         $filename = time(). "-" . $request->judul . "." . $image->getClientOriginalExtension();
         $image->storeAs('public/gallery', $filename);
         $validate['file'] = $filename;
+        
+        $validate['tanggal'] = now();
         
         // Simpan Gallery ke databse
         Gallery::create($validate);
@@ -50,5 +51,33 @@ class GalleryController extends Controller
         }
         $galeri->delete();
         return redirect()->back()->with('sukses','Berhasil menghapus dari Galeri');
+    }
+
+    public function Update(Request $request, String $id){
+        // Mengubah id yang di enkripsi menjadi ke id asalnya
+        $id = $this->decrypId($id);
+
+        // Validasi Input
+        $validate = $request->validate([
+            'judul'      => 'required|string|max:150',
+            'keterangan' => 'required|string',
+            'file'       => 'required|file|mimes:jpg,jpeg,png,webp,mp4,mov,avi|max:10240',
+            'kategori'  => 'required|in:Foto,Video',
+        ]);
+
+        $galeri = Gallery::findOrFail($id);
+        if($request->hasFile('file')){
+            if(Storage::exists('public/gallery/'.$galeri->file)){
+                Storage::delete('public/gallery/' . $galeri->file);
+            }
+            $image = $request->file('file');
+            $filename = time(). "-" . $request->judul . "." . $image->getClientOriginalExtension();
+            $image->storeAs('public/gallery', $filename);
+            $validate['file'] = $filename;
+        }
+
+        // Profile di Update
+        $galeri->update($validate);
+        return redirect()->back()->with('pesan','Berhasil mengubah galeri');
     }
 }

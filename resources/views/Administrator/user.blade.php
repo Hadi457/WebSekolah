@@ -1,6 +1,6 @@
 @extends('Administrator.template')
 @section('content')
-    <!-- Modal -->
+    <!-- Modal Create User -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -12,19 +12,19 @@
                     @csrf
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="nama" class="form-label">Nama</label>
-                            <input type="text" class="form-control" id="nama" name="nama" required>
+                            <label for="nama" class="form-label fw-semibold">Nama<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukan nama" required>
                         </div>
                         <div class="mb-3">
-                            <label for="username" class="form-label">Username</label>
-                            <input type="text" class="form-control" id="username" name="username" required>
+                            <label for="username" class="form-label fw-semibold">Username<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Masukan username" required>
                         </div>
                         <div class="mb-4">
-                            <label for="password" class="form-label">password</label>
-                            <input type="password" class="form-control" id="password" name="password" required>
+                            <label for="password" class="form-label fw-semibold">password<span class="text-danger">*</span></label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Masukan password" required>
                         </div>
                         <div class="mb-4">
-                            <label for="role">Role</label>
+                            <label for="role" class="form-label fw-semibold">Role<span class="text-danger">*</span></label>
                             <select name="role" id="role" class="form-select mt-2" aria-label="Default select example">
                                 <option value="Admin">Admin</option>
                                 <option value="Operator">Operator</option>
@@ -39,6 +39,49 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal Edit User -->
+    @foreach ($user as $item)
+        <div class="modal fade" id="editModal{{ $item->id }}" tabindex="-1" aria-labelledby="editModalLabel{{ $item->id }}" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="{{route('user-update', Crypt::encrypt($item->id))}}" method="post">
+                        @csrf
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="nama" class="form-label fw-semibold">Nama<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukan nama" required value="{{$item->nama}}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="username" class="form-label fw-semibold">Username<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="username" name="username" placeholder="Masukan username" required value="{{$item->username}}">
+                            </div>
+                            <div class="mb-4">
+                                <label for="password" class="form-label fw-semibold">password<span class="text-danger">*</span></label>
+                                <input type="password" class="form-control" id="password" placeholder="Masukan password" name="password">
+                            </div>
+                            <div class="mb-4">
+                                <label for="role" class="form-label fw-semiold">Role</label>
+                                <select name="role" id="role" class="form-select mt-2" aria-label="Default select example">
+                                    <option value="Admin" {{ $item->role == "Admin" ? 'selected' : '' }}>Admin</option>
+                                    <option value="Operator" {{ $item->role == "Operator" ? 'selected' : '' }}>Operator</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endforeach
+
     <div class="h-100">
         <div class="d-flex justify-content-between align-items-center px-3" style="border-top-left-radius: 10px; border-top-right-radius: 10px; background-color: #003F91;">
             <h3 class="fw-bold py-3 text-white">User</h3>
@@ -61,7 +104,7 @@
             </div>
         @endif
         <div class="bg-light p-3 rounded">
-            <div class="table-responsive">
+            <div class="table-responsive min-vh-100">
                 <table id="example" class="table table-striped w-100">
                     <thead>
                         <tr>
@@ -84,6 +127,9 @@
                                     @endif
                                 </td>
                                 <td>
+                                    <a class="btn text-white" style="background-color: #ff595e;" href="#" data-bs-toggle="modal" data-bs-target="#editModal{{ $item->id }}">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
                                     <a class="btn text-white" style="background-color: #ff595e;" href="{{route('user-delete',Crypt::encrypt($item->id))}}" onclick="return confirm('Hapus data ini?')">
                                         <i class="fa-solid fa-trash"></i>
                                     </a>

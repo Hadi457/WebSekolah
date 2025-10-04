@@ -31,8 +31,7 @@
             <div class="col-lg-6 col-md-6 d-flex flex-column justify-content-center">
                 <h3 style="border-left: 5px solid #6D326D; padding-left: 10px;" class="fw-bold fs-3">Visi Misi</h3>
                 <p class="mt-3">
-                    SMA Negri 6 Jakarta memiliki visi “Teguh dalam Keimanan dan Ketakwaan, Unggul dalam Prestasi dan Kreasi, dan Berbudaya”. Misinya meliputi pembinaan iman dan takwa, pembelajaran yang aktif dan menyenangkan, pengembangan potensi akademik maupun nonakademik, serta penciptaan lingkungan belajar yang kondusif dan ramah lingkungan. Tujuannya adalah mencetak peserta didik yang beriman, berprestasi, mampu melanjutkan ke perguruan tinggi, 
-                    serta menjalin kemitraan yang baik dengan warga sekolah, masyarakat, dan berbagai institusi pendukung.
+                    {{$profile->visi_misi}}
                 </p>
             </div>
             <div class="col-lg-6 col-md-6 mt-5 d-flex justify-content-center align-items-center">
@@ -58,13 +57,13 @@
                                         <div class="mb-5">
                                             <div class="border-start border-3 border-primary ps-3">
                                                 <small class="text-muted d-block">Nama Sekolah</small>
-                                                <span class="fw-semibold">SMA Negeri 6 Jakarta</span>
+                                                <span class="fw-semibold">{{$profile->nama_sekolah}}</span>
                                             </div>
                                         </div>
                                         <div class="">
                                             <div class="border-start border-3 border-success ps-3">
                                                 <small class="text-muted d-block">Tahun Berdiri</small>
-                                                <span class="fw-semibold">8 Juni 2013</span>
+                                                <span class="fw-semibold">{{$profile->tahun_berdiri}}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -72,13 +71,13 @@
                                         <div class="mb-5 mt-4">
                                             <div class="border-start border-3 border-warning ps-3">
                                                 <small class="text-muted d-block">Alamat</small>
-                                                <span class="fw-semibold">Jl. Kp. Pameungpeuk RT/RW 03/06</span>
+                                                <span class="fw-semibold">{{$profile->alamat}}</span>
                                             </div>
                                         </div>
                                         <div class="mb-5">
                                             <div class="border-start border-3 border-info ps-3">
                                                 <small class="text-muted d-block">Kontak</small>
-                                                <span class="fw-semibold">082213331933</span>
+                                                <span class="fw-semibold">{{$profile->kontak}}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -88,7 +87,7 @@
                                                 <div class="rounded-circle overflow-hidden mx-auto mb-3" style="width: 120px; height: 120px;">
                                                     <img src="{{asset('storage/school-profile/'.$profile->foto)}}" class="w-100 h-100 object-fit-cover" alt="Kepala Sekolah">
                                                 </div>
-                                                <h5 class="fw-bold">H. Dede Iryanto, S.Pd., M.Pd.</h5>
+                                                <h5 class="fw-bold">{{$profile->kepala_sekolah}}</h5>
                                                 <p class="text-muted">Kepala Sekolah</p>
                                             </div>
                                         </div>
@@ -102,10 +101,8 @@
                             <div class="card-body">
                                 <h5 class="card-title fw-bold mb-3">Sambutan Kepala Sekolah</h5>
                                 <p>
-                                    Assalamu'alaikum Warahmatullahi Wabarakatuh.<br><br>
-                                    Puji syukur kehadirat Allah SWT atas segala rahmat dan karunia-Nya... Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa molestias harum magnam dolore voluptate impedit reprehenderit iure. Cumque quae hic delectus. Rem minus molestiae optio autem voluptatum ex dicta tempore quidem enim quae natus animi repudiandae sunt ipsa cum quo possimus, sapiente blanditiis doloremque est ullam voluptates esse amet? Excepturi iure cum dolorem amet ipsum ex iusto dignissimos accusamus ducimus voluptas quo asperiores ut deleniti accusantium tempora, atque at unde ipsa facere necessitatibus ad sapiente quis. Laudantium esse ipsum quisquam eius veniam ea, modi aliquid, adipisci amet illo eos maxime culpa repudiandae nihil eligendi sapiente error doloribus impedit. Veritatis, ab.
+                                    {{$profile->deskripsi}}
                                 </p>
-                                <p>lorem100</p>
                             </div>
                         </div>
                     </div>

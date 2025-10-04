@@ -1,6 +1,6 @@
 @extends('Administrator.template')
 @section('content')
-    <!-- Modal -->
+    <!-- Modal Creatae Guru-->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -12,20 +12,20 @@
                     @csrf
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="nip" class="form-label">Nip</label>
-                            <input type="text" class="form-control" id="nip" name="nip" required>
+                            <label for="nip" class="form-label fw-semibold">Nip<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="nip" placeholder="Masukan NIP" name="nip" required>
                         </div>
                         <div class="mb-4">
-                            <label for="nama_guru" class="form-label">Nama Guru</label>
-                            <input type="text" class="form-control" id="nama_guru" name="nama_guru" required>
+                            <label for="nama_guru" class="form-label fw-semibold">Nama Guru<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="nama_guru" name="nama_guru" placeholder="Masukan Nama Guru" required>
                         </div>
                         <div class="mb-4">
-                            <label for="foto" class="form-label">Foto</label>
-                            <input type="file" class="form-control" id="foto" name="foto" required>
+                            <label for="foto" class="form-label fw-semibold">Foto<span class="text-danger">*</span></label>
+                            <input type="file" class="form-control" id="foto" name="foto" placeholder="Masukan foto" required>
                         </div>
                         <div class="mb-4">
-                            <label for="mapel" class="form-label">mapel</label>
-                            <input type="text" class="form-control" id="mapel" name="mapel" required>
+                            <label for="mapel" class="form-label fw-semibold">mapel<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="mapel" name="mapel" placeholder="Masukan Mata Pelajaran" required>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -36,6 +36,55 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal Update Guru-->
+    @foreach ($guru as $item)
+        <div class="modal fade" id="editModal{{$item->id}}" tabindex="-1" aria-labelledby="editModalLabel{{$item->id}}" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Guru</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="{{route('guru-update', Crypt::encrypt($item->id))}}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="nip" class="form-label fw-semibold">Nip<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="nip" name="nip" placeholder="Masukan NIP" required value="{{$item->nip}}">
+                            </div>
+                            <div class="mb-4">
+                                <label for="nama_guru" class="form-label fw-semibold">Nama Guru<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="nama_guru" name="nama_guru" placeholder="Masukan Nama Guru" required value="{{$item->nama_guru}}">
+                            </div>
+                            <div class="mb-4">
+                                <label for="foto" class="form-label fw-semibold">Foto<span class="text-danger">*</span></label>
+                                <input type="file" class="form-control" id="foto" name="foto" placeholder="Masukan foto">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Foto Saat Ini<span class="text-danger">*</span></label>
+                                <div class="mt-2">
+                                    <img src="{{ asset('storage/foto-teacher/' . $item->foto) }}" 
+                                        alt="{{ $item->nama_guru }}" 
+                                        style="max-width: 100%; height: 100px; object-fit: cover; border-radius: 5px;">
+                                    <p class="small text-muted mt-1">{{ $item->foto }}</p>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="mapel" class="form-label fw-semibold">mapel<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="mapel" name="mapel" placeholder="Masukan Mata Pelajaran" required value="{{$item->mapel}}">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endforeach
+
     <div class="h-100">
         <div class="d-flex justify-content-between align-items-center px-3" style="border-top-left-radius: 10px; border-top-right-radius: 10px; background-color: #003F91;">
             <h3 class="fw-bold py-3 text-white">Guru</h3>
@@ -58,7 +107,7 @@
             </div>
         @endif
         <div class="bg-light p-3 rounded">
-            <div class="table-responsive">
+            <div class="table-responsive min-vh100">
                 <table id="example" class="table w-100 table-striped">
                     <thead>
                         <tr>
@@ -79,6 +128,9 @@
                                     <img src="{{asset('storage/foto-teacher/'.$item->foto)}}" width="100" height="100" style="object-fit: cover;" alt="">
                                 </td>
                                 <td>
+                                    <a class="btn text-white" style="background-color: #ff595e;" href="#" data-bs-toggle="modal" data-bs-target="#editModal{{ $item->id }}">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
                                     <a class="btn btn-danger" href="{{route('guru-delete',Crypt::encrypt($item->id))}}" onclick="return confirm('Hapus data ini?')">
                                         <i class="fa-solid fa-trash"></i>
                                     </a>
@@ -91,8 +143,6 @@
         </div>
     </div>
 <script>
-    new DataTable('#example', {
-        scrollY: '410px',
-    });
+    new DataTable('#example');
 </script>
 @endsection

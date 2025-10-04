@@ -51,4 +51,31 @@ class TeacherController extends Controller
         $guru->delete();
         return redirect()->back()->with('sukses','Berhasil menghapus data Guru');
     }
+    public function Update(Request $request, String $id){
+        // Mengubah id yang di enkripsi menjadi ke id asalnya
+        $id = $this->decrypId($id);
+
+        // Validasi Input
+        $validate = $request->validate([
+            'nama_guru' => 'required|string|max:100',
+            'nip'       => 'required|string|max:30',
+            'foto'      => 'nullable|image|mimes:jpg,jpeg,png,webp|max:3072',
+            'mapel'     => 'required|string|max:100',
+        ]);
+
+        $guru = Teacher::findOrFail($id);
+        if($request->hasFile('foto')){
+            if(Storage::exists('public/foto-teacher/'.$guru->foto)){
+                Storage::delete('public/foto-teacher/' . $guru->foto);
+            }
+            $image = $request->file('foto');
+            $filename = time(). "-" . $request->nama_guru . "." . $image->getClientOriginalExtension();
+            $image->storeAs('public/foto-teacher',$filename);
+            $validate['foto'] = $filename;
+        }
+
+        // Profile di Update
+        $guru->update($validate);
+        return redirect()->back()->with('pesan','Berhasil mengubah guru');
+    }
 }

@@ -40,4 +40,23 @@ class StudentController extends Controller
         $siswa->delete();
         return redirect()->back()->with('sukses','Berhasil menghapus data Siswa');
     }
+
+    public function Update(Request $request, String $id){
+        // Mengubah id yang di enkripsi menjadi ke id asalnya
+        $id = $this->decrypId($id);
+
+        // Validasi Input
+        $validate = $request->validate([
+            'nisn'          => 'required|digits:10',
+            'nama_siswa'    => 'required|string|max:150',
+            'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
+            'tahun_masuk'   => 'required|digits:4|integer|min:2000|max:' . date('Y'),
+        ]);
+        // Ambil hanya tahun dari input tanggal
+        $validate['tahun_masuk'] = date('Y', strtotime($request->tahun_masuk));
+        $siswa = Student::findOrFail($id);
+        // Siswa di Update
+        $siswa->update($validate);
+        return redirect()->back()->with('pesan','Berhasil mengubah siswa');
+    }
 }

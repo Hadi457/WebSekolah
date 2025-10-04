@@ -99,7 +99,7 @@
             @yield('content')
         </div>
         
-        <footer class="footer text-white pt-5 pb-3" style="background-color: #003F91">
+        <footer class="footer text-white pt-5 pb-3 mt-5" style="background-color: #003F91">
             <div class="container">
                 <div class="row text-center text-md-start">
                     <div class="col-md-4 mb-4">

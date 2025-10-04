@@ -52,4 +52,32 @@ class ExtracurricularController extends Controller
         $eskul->delete();
         return redirect()->back()->with('sukses','Berhasil menghapus data Ekstrakurikuler');
     }
+
+    public function Update(Request $request, String $id){
+        // Mengubah id yang di enkripsi menjadi ke id asalnya
+        $id = $this->decrypId($id);
+
+        // Validasi Input
+        $validate = $request->validate([
+            'nama_eskul'    => 'required|string|max:100',
+            'pembina'        => 'required|string|max:100',
+            'jadwal_latihan' => 'required|string|max:100',
+            'deskripsi'      => 'required|string',
+        ]);
+
+        $eskul = Extracurricular::findOrFail($id);
+        if($request->hasFile('gambar')){
+            if(Storage::exists('public/extracurricular-image/'.$eskul->gambar)){
+                Storage::delete('public/extracurricular-image/' . $eskul->gambar);
+            }
+            $image = $request->file('gambar');
+            $filename = time()."-".$request->nama_eskul.".".$image->getClientOriginalExtension();
+            $image->storeAs('public/extracurricular-image', $filename);
+            $validate['gambar'] = $filename;
+        }
+
+        // Profile di Update
+        $eskul->update($validate);
+        return redirect()->back()->with('pesan','Berhasil mengubah galeri');
+    }
 }

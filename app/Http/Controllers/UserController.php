@@ -37,4 +37,21 @@ class UserController extends Controller
         $user->delete();
         return redirect()->back()->with('sukses','Berhasil menghapus User');
     }
+
+    public function Update(Request $request, String $id){
+        // Mengubah id yang di enkripsi menjadi ke id asalnya
+        $id = $this->decrypId($id);
+
+        // Validasi Input
+        $validate = $request->validate([
+            'nama'     => 'required|string|max:150',
+            'username' => 'required|string|max:50',
+            'role'     => 'required|in:Admin,Operator',
+        ]);
+
+        $user = User::findOrFail($id);
+        // Profile di Update
+        $user->update($validate);
+        return redirect()->back()->with('pesan','Berhasil mengubah user');
+    }
 }

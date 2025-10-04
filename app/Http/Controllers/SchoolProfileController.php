@@ -30,8 +30,8 @@ class SchoolProfileController extends Controller
         $validate = $request->validate([
             'nama_sekolah'   => 'required|string|max:150',
             'kepala_sekolah' => 'required|string|max:100',
-            'foto'           => 'required|image|mimes:jpg,jpeg,png,webp|max:3072',
-            'logo'           => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'foto'           => 'nullable|image|mimes:jpg,jpeg,png,webp|max:3072',
+            'logo'           => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
             'alamat'         => 'required|string',
             'kontak'         => 'required|string|max:15',
             'visi_misi'      => 'required|string',

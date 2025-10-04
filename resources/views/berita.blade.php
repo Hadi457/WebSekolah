@@ -5,17 +5,57 @@
         <hr>
         <div class="row mt-5">
             @foreach ($berita as $item)
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card p-3 shadow" style="height: 100%; border: none;">
-                        <img src="{{ asset('storage/news-image/'.$item->gambar)}}" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title fw-semibold">{{$item->judul}}</h5>
-                            <p class="card-text" style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">
-                                {{$item->isi}}
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card p-3 shadow h-100" style="border: none;">
+                        <!-- Gambar dengan fixed height -->
+                        <img src="{{ asset('storage/news-image/'.$item->gambar)}}" 
+                            alt="{{ $item->judul }}"
+                            class="card-img-top"
+                            style="height: 180px; object-fit: cover; border-radius: 8px;">
+                        
+                        <div class="card-body d-flex flex-column">
+                            <!-- Judul dengan line clamp -->
+                            <h5 class="card-title fw-semibold mb-3" 
+                                style="font-size: 1.1rem;
+                                    display: -webkit-box;
+                                    -webkit-line-clamp: 2;
+                                    -webkit-box-orient: vertical;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    line-height: 1.4;
+                                    min-height: 2.8rem;">
+                                {{ $item->judul }}
+                            </h5>
+                            
+                            <!-- Isi berita dengan formatting yang lebih baik -->
+                            <p class="card-text flex-grow-1 mb-3" 
+                                style="font-size: 0.95rem;
+                                        color: #666;
+                                        line-height: 1.5;
+                                        display: -webkit-box;
+                                        -webkit-line-clamp: 3;
+                                        -webkit-box-orient: vertical;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;">
+                                    {{ $item->isi }}
                             </p>
+                            
+                            <!-- Tanggal publikasi -->
+                            <small class="text-muted mb-2" style="font-size: 0.85rem;">
+                                <i class="far fa-calendar me-1"></i>
+                                {{ \Carbon\Carbon::parse($item->tanggal)->format('d M Y') }}
+                            </small>
                         </div>
-                        <div class="p-1">
-                            <a href="#" class="btn btn-primary p-2" style="background-color: #6D326D; border: none; border-radius: 25px; width: 250px;">
+                        
+                        <!-- Tombol -->
+                        <div class="card-footer bg-transparent border-0 pt-0">
+                            <a href="{{ route('berita-detail', $item->id) }}" 
+                                class="btn btn-primary w-100" 
+                                style="background-color: #6D326D; 
+                                        border: none; 
+                                        border-radius: 20px; 
+                                        padding: 10px 20px;
+                                        font-size: 0.9rem;">
                                 Baca Selengkapnya
                             </a>
                         </div>
