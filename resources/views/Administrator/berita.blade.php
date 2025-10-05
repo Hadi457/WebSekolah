@@ -33,8 +33,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
             </div>
@@ -89,14 +89,15 @@
     <div class="h-100">
         <!-- Header -->
         <div class="d-flex justify-content-between align-items-center px-3 mb-3" style="border-top-left-radius: 10px; border-top-right-radius: 10px; background-color: #003F91;">
-            <h3 class="fw-bold py-3 text-white">Ekstrakurikuler</h3>
+            <h3 class="fw-bold py-3 text-white">Berita</h3>
             <!-- Button trigger modal -->
-            <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary d-flex align-items-center py-3 px-4" style="background-color: #6D326D; height: 25px; border: none; border-radius: 25px; font-size: 15px;">Tambah Eskul</a>
+            <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary d-flex align-items-center py-3 px-4" 
+            style="background-color: #6D326D; height: 25px; border: none; border-radius: 25px; font-size: 15px;">Tambah Berita</a>
         </div>
 
         <!-- Alert Messages -->
         @if (Session::get('sukses'))
-            <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
+            <div class="alert alert-success alert-dismissible fade show mb-1 mt-2" role="alert">
                 <i class="fas fa-check-circle me-2"></i>
                 {{ Session::get('sukses') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
@@ -104,7 +105,7 @@
         @endif
         
         @if ($errors->any())
-            <div class="alert alert-danger alert-dismissible fade show mb-4" role="alert">
+            <div class="alert alert-danger alert-dismissible fade show mb-1 mt-2" role="alert">
                 <i class="fas fa-exclamation-triangle me-2"></i>
                 <strong>Terjadi kesalahan:</strong>
                 <ul class="mb-0 mt-2">
@@ -138,11 +139,11 @@
                                     <img src="{{ asset('storage/news-image/'.$item->gambar) }}" width="100" height="100" style="object-fit: cover;" alt="">
                                 </td>
                                 <td>
-                                    <button data-bs-toggle="modal" data-bs-target="#editModal{{$item->id}}" class="btn btn-sm btn-outline-warning" title="Edit">
+                                    <a data-bs-toggle="modal" data-bs-target="#editModal{{$item->id}}" class="btn bg-warning bg-opacity-25 text-warning" title="Edit">
                                         <i class="fas fa-edit"></i>
-                                    </button>
-                                    <a class="btn btn-sm btn-outline-danger" 
-                                        href="{{ route('eskul-delete', Crypt::encrypt($item->id)) }}" 
+                                    </a>
+                                    <a class="btn bg-danger bg-opacity-25 text-danger"
+                                        href="{{ route('berita-delete', Crypt::encrypt($item->id)) }}" 
                                         onclick="return confirm('Hapus eskul {{ $item->nama_eskul }}?')"
                                         title="Hapus">
                                         <i class="fas fa-trash"></i>
@@ -156,6 +157,8 @@
         </div>
     </div>
 <script>
-    new DataTable('#example');
+    new DataTable('#example',{
+        responsive: true
+    });
 </script>
 @endsection

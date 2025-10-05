@@ -57,9 +57,12 @@ class NewsController extends Controller
     }
     
     public function BeritaDetail($id){
-        $data['berita'] = News::findOrFail($id);
-        return view('berita-detail', $data);
-    }
+    $data['news'] = News::with('user')->findOrFail($id);
+    $data['terkini'] = News::orderBy('tanggal', 'desc')->limit(7)->get();
+    $data['berita'] = News::orderBy('tanggal', 'desc')->limit(4)->get();
+    
+    return view('berita-detail', $data);
+}
 
     public function Update(Request $request, String $id){
         // Mengubah id yang di enkripsi menjadi ke id asalnya
@@ -84,6 +87,6 @@ class NewsController extends Controller
 
         // Profile di Update
         $berita->update($validate);
-        return redirect()->back()->with('pesan','Berhasil mengubah Berita');
+        return redirect()->back()->with('sukses','Berhasil mengubah Berita');
     }
 }

@@ -76,6 +76,6 @@ class TeacherController extends Controller
 
         // Profile di Update
         $guru->update($validate);
-        return redirect()->back()->with('pesan','Berhasil mengubah guru');
+        return redirect()->back()->with('sukses','Berhasil mengubah guru');
     }
 }

@@ -42,40 +42,33 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                            <i class="fas fa-times me-1"></i>Batal
-                        </button>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-save me-1"></i>Simpan
-                        </button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
     @foreach ($eskul as $item)
-        <!-- Modal Create Eskul -->
+        <!-- Modal Edit Eskul -->
         <div class="modal fade" id="editModal{{$item->id}}" tabindex="-1" aria-labelledby="editModalLabel{{$item->id}}" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header bg-primary text-white">
-                        <h5 class="modal-title fw-bold">
-                            <i class="fas fa-plus-circle me-2"></i>Tambah Eskul
-                        </h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-header">
+                        <h5 class="modal-title">Tambah Eskul</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form action="{{route('eskul-update', Crypt::encrypt($item->id))}}" enctype="multipart/form-data" method="post">
                         @csrf
                         <div class="modal-body">
-                            <div class="row">
-                                <div class="mb-3">
-                                    <label for="nama_eskul" class="form-label fw-semibold">Nama Eskul <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="nama_eskul" name="nama_eskul" placeholder="Masukkan nama eskul" required value="{{$item->nama_eskul}}">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="pembina" class="form-label fw-semibold">Pembina <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="pembina" name="pembina" placeholder="Nama pembina eskul" required value="{{$item->pembina}}">
-                                </div>
+                            <div class="mb-3">
+                                <label for="nama_eskul" class="form-label fw-semibold">Nama Eskul <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="nama_eskul" name="nama_eskul" placeholder="Masukkan nama eskul" required value="{{$item->nama_eskul}}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="pembina" class="form-label fw-semibold">Pembina <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="pembina" name="pembina" placeholder="Nama pembina eskul" required value="{{$item->pembina}}">
                             </div>
                             <div class="mb-3">
                                 <label for="jadwal_latihan" class="form-label fw-semibold">Jadwal Latihan <span class="text-danger">*</span></label>
@@ -101,12 +94,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                <i class="fas fa-times me-1"></i>Batal
-                            </button>
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-save me-1"></i>Simpan
-                            </button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                         </div>
                     </form>
                 </div>
@@ -123,7 +112,7 @@
 
         <!-- Alert Messages -->
         @if (Session::get('sukses'))
-            <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
+            <div class="alert alert-success alert-dismissible fade show mb-1 mt-2" role="alert">
                 <i class="fas fa-check-circle me-2"></i>
                 {{ Session::get('sukses') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
@@ -131,7 +120,7 @@
         @endif
         
         @if ($errors->any())
-            <div class="alert alert-danger alert-dismissible fade show mb-4" role="alert">
+            <div class="alert alert-danger alert-dismissible fade show mb-1 mt-2" role="alert">
                 <i class="fas fa-exclamation-triangle me-2"></i>
                 <strong>Terjadi kesalahan:</strong>
                 <ul class="mb-0 mt-2">
@@ -167,10 +156,10 @@
                                     <img src="{{ asset('storage/extracurricular-image/'.$item->gambar) }}" width="100" height="100" style="object-fit: cover;" alt="">
                                 </td>
                                 <td>
-                                    <button data-bs-toggle="modal" data-bs-target="#editModal{{$item->id}}" class="btn btn-sm btn-outline-warning" title="Edit">
+                                    <a data-bs-toggle="modal" data-bs-target="#editModal{{$item->id}}" class="btn bg-warning bg-opacity-25 text-warning" title="Edit">
                                         <i class="fas fa-edit"></i>
-                                    </button>
-                                    <a class="btn btn-sm btn-outline-danger" 
+                                    </a>
+                                    <a class="btn bg-danger bg-opacity-25 text-danger" 
                                         href="{{ route('eskul-delete', Crypt::encrypt($item->id)) }}" 
                                         onclick="return confirm('Hapus eskul {{ $item->nama_eskul }}?')"
                                         title="Hapus">
@@ -185,6 +174,8 @@
         </div>
     </div>
 <script>
-    new DataTable('#example');
+    new DataTable('#example',{
+        responsive: true
+    });
 </script>
 @endsection

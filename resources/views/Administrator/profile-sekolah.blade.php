@@ -215,7 +215,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batl</button>
                         <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                     </div>
                 </form>
@@ -228,21 +228,29 @@
             <!-- Button trigger modal -->
             <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#editProfileModal" class="btn btn-primary d-flex align-items-center py-3 px-4" style="background-color: #6D326D; height: 25px; border: none; border-radius: 25px; font-size: 15px;">Edit Profile</a>
         </div>
-        @if (Session::get('sukses') !==  null)
-            <div class="alert mt-4 alert-success alert-dismissible">
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+
+        <!-- Alert Messages -->
+        @if (Session::get('sukses'))
+            <div class="alert alert-success alert-dismissible fade show mb-1 mt-2" role="alert">
+                <i class="fas fa-check-circle me-2"></i>
                 {{ Session::get('sukses') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>  
         @endif
+        
         @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul class="mb-0">
+            <div class="alert alert-danger alert-dismissible fade show mb-1 mt-2" role="alert">
+                <i class="fas fa-exclamation-triangle me-2"></i>
+                <strong>Terjadi kesalahan:</strong>
+                <ul class="mb-0 mt-2">
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
         @endif
+
         <div class="bg-light p-4 rounded-bottom border">
             <div class="row">
                 <!-- Sidebar Info -->

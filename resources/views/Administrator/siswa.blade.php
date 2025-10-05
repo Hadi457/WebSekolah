@@ -32,15 +32,15 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- Modal Update Siswa -->
+    <!-- Modal Edit Siswa -->
     @foreach ($siswa as $item)
         <div class="modal fade" id="editModal{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel{{$item->id}}" aria-hidden="true">
             <div class="modal-dialog">
@@ -73,8 +73,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                         </div>
                     </form>
                 </div>
@@ -87,21 +87,29 @@
             <!-- Button trigger modal -->
             <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary d-flex align-items-center py-3 px-4" style="background-color: #6D326D; height: 25px; border: none; border-radius: 25px; font-size: 15px;">Tambah Siswa</a>
         </div>
-        @if (Session::get('sukses') !==  null)
-            <div class="alert mt-4 alert-success alert-dismissible">
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+
+        <!-- Alert Messages -->
+        @if (Session::get('sukses'))
+            <div class="alert alert-success alert-dismissible fade show mb-1 mt-2" role="alert">
+                <i class="fas fa-check-circle me-2"></i>
                 {{ Session::get('sukses') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>  
         @endif
+        
         @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul class="mb-0">
+            <div class="alert alert-danger alert-dismissible fade show mb-1 mt-2" role="alert">
+                <i class="fas fa-exclamation-triangle me-2"></i>
+                <strong>Terjadi kesalahan:</strong>
+                <ul class="mb-0 mt-2">
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
         @endif
+
         <div class="bg-light p-3 rounded">
             <div class="table-responsive min-vh-100">
                 <table id="example" class="table w-100 table-striped">
@@ -122,10 +130,10 @@
                                 <td>{{$item->jenis_kelamin}}</td>
                                 <td>{{$item->tahun_masuk}}</td>
                                 <td>
-                                    <a class="btn btn-danger" href="{{route('siswa-delete',Crypt::encrypt($item->id))}}" onclick="return confirm('Hapus data ini?')">
-                                        <i class="fa-solid fa-trash"></i>
+                                    <a class="btn bg-warning bg-opacity-25 text-warning" href="#" data-bs-toggle="modal" data-bs-target="#editModal{{$item->id}}">
+                                        <i class="fa-solid fa-pen-to-square"></i>
                                     </a>
-                                    <a class="btn btn-danger" href="#" data-bs-toggle="modal" data-bs-target="#editModal{{$item->id}}">
+                                    <a class="btn bg-danger bg-opacity-25 text-danger" href="{{route('siswa-delete',Crypt::encrypt($item->id))}}" onclick="return confirm('Hapus data ini?')">
                                         <i class="fa-solid fa-trash"></i>
                                     </a>
                                 </td>
@@ -137,6 +145,8 @@
         </div>
     </div>
 <script>
-    new DataTable('#example');
+    new DataTable('#example',{
+        responsive: true
+    });
 </script>
 @endsection

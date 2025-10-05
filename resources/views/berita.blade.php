@@ -1,8 +1,8 @@
 @extends('template')
 @section('content')
     <div class="container mt-5">
-        <h1 class="fw-bold">Berita</h1>
-        <hr>
+        <h1 class="fw-bold text-center mb-4">Berita SMA 6 Jakarta</h1>
+        <p class="text-center text-muted mb-5">Dapatkan informasi dan kegiatan terkini seputar SMA Negeri 6 Jakarta. Kami selalu berkomitmen untuk berbagi kabar inspiratif dari lingkungan sekolah.</p>
         <div class="row mt-5">
             @foreach ($berita as $item)
                 <div class="col-lg-3 col-md-6 mb-4">
@@ -15,7 +15,7 @@
                         
                         <div class="card-body d-flex flex-column">
                             <!-- Judul dengan line clamp -->
-                            <h5 class="card-title fw-semibold mb-3" 
+                            <h5 class="card-title fw-semibold mb-0" 
                                 style="font-size: 1.1rem;
                                     display: -webkit-box;
                                     -webkit-line-clamp: 2;

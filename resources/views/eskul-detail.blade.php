@@ -1,29 +1,90 @@
 @extends('template')
 @section('content')
-    <div style="height: 450px; background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0)), 
-    url('{{ asset('asset/image/1.jpg')}}'); background-size: cover; background-position: center;" class="d-flex justify-content-center align-items-center flex-column text-center">
-        <h1 class="text-white fw-bold" style="font-size: 50px;">Detail Ekstrakurikuler</h1>
-        <p class="text-white fw-semibold" style="font-size: 20px;">
-            Berikut adalah halaman detail ekstrakurikuler dari SMAN 2 Singaparna.
-        </p>
-    </div>
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col d-flex justify-content-center align-items-center">
-                <img src="{{asset('asset/image/undraw_educator_6dgp.svg')}}" width="500" height="500" style="object-fit: contain" alt="">
+<div class="container py-4">
+    <!-- Header Section -->
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/" class="text-decoration-none">Beranda</a></li>
+            <li class="breadcrumb-item"><a href="/eskul" class="text-decoration-none">Ekstrakurikuler</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ $eskul->nama_eskul }}</li>
+        </ol>
+    </nav>
+
+    <div class="row">
+        <!-- Gambar dan Informasi Utama -->
+        <div class="col-lg-8">
+            <div class="card shadow-sm border-0 mb-4">
+                <div class="card-body p-0">
+                    <div class="row g-0">
+                        <div class="col-md-6">
+                            <img src="{{ asset('storage/extracurricular-image/' . $eskul->gambar) }}" alt="{{ $eskul->nama_eskul }}" 
+                                 class="img-fluid rounded-start" style="height: 300px; width: 100%; object-fit: cover;">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4">
+                                <h1 class="h3 fw-bold mb-3">{{ $eskul->nama_eskul }}</h1>
+                                
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fa-solid fa-chalkboard-user me-3"></i>
+                                    <div>
+                                        <h6 class="mb-0 text-muted">Pembina</h6>
+                                        <p class="mb-0 fw-semibold">{{ $eskul->pembina }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="far fa-calendar me-3"></i>
+                                    <div>
+                                        <h6 class="mb-0 text-muted">Jadwal Latihan</h6>
+                                        <p class="mb-0 fw-semibold">{{ $eskul->jadwal_latihan }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col d-flex flex-column justify-content-center">
-                <h3 style="border-left: 5px solid #6D326D; padding-left: 10px; font-size: 35px;" class="fw-bold">Ekstrakurikuler</h3>
-                <p class="mt-3">
-                    Ekstrakurikuler di SMAN 2 Singaparna dirancang untuk mengembangkan minat, bakat, dan keterampilan siswa di luar jam pelajaran formal. 
-                    Kami menawarkan berbagai kegiatan yang mencakup bidang seni, olahraga, akademik, dan sosial. 
-                    Setiap ekstrakurikuler dipandu oleh pembina yang berpengalaman dan berdedikasi untuk membantu siswa mencapai potensi terbaik mereka.
-                </p>
-                <p>
-                    Melalui partisipasi dalam ekstrakurikuler, siswa dapat membangun karakter, meningkatkan kerja sama tim, dan mengembangkan kepemimpinan. 
-                    Kami percaya bahwa kegiatan ini tidak hanya memperkaya pengalaman sekolah tetapi juga mempersiapkan siswa untuk tantangan di masa depan.
-                </p>
+
+            <!-- Deskripsi -->
+            <div class="card shadow-sm border-0 mb-4">
+                <div class="card-header bg-light">
+                    <h5 class="card-title mb-0">
+                        <i class="bi bi-info-circle text-primary me-2"></i>
+                        Tentang Ekstrakurikuler
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ $eskul->deskripsi }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar Informasi -->
+        <div class="col-lg-4">
+            <!-- Info Card -->
+            <div class="card shadow-sm border-0 mb-4">
+                <div class="card-header text-white py-3" style="background-color: #003F91;">
+                    <h6 class="card-title mb-0">
+                        <i class="bi bi-clock-history me-2"></i>
+                        Informasi Singkat
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <small class="text-muted">Nama Eskul</small>
+                        <p class="fw-semibold mb-0">{{ $eskul->nama_eskul }}</p>
+                    </div>
+                    <div class="mb-3">
+                        <small class="text-muted">Pembina</small>
+                        <p class="fw-semibold mb-0">{{ $eskul->pembina }}</p>
+                    </div>
+                    <div class="mb-3">
+                        <small class="text-muted">Jadwal</small>
+                        <p class="fw-semibold mb-0">{{ $eskul->jadwal_latihan }}</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+</div>
 @endsection

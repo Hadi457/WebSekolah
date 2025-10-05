@@ -78,6 +78,6 @@ class GalleryController extends Controller
 
         // Profile di Update
         $galeri->update($validate);
-        return redirect()->back()->with('pesan','Berhasil mengubah galeri');
+        return redirect()->back()->with('sukses','Berhasil mengubah galeri');
     }
 }

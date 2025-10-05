@@ -57,6 +57,6 @@ class StudentController extends Controller
         $siswa = Student::findOrFail($id);
         // Siswa di Update
         $siswa->update($validate);
-        return redirect()->back()->with('pesan','Berhasil mengubah siswa');
+        return redirect()->back()->with('sukses','Berhasil mengubah siswa');
     }
 }

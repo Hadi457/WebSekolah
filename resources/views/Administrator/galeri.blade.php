@@ -32,15 +32,16 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
     @foreach ($galeri as $item)
-        <!-- Modal Create Galeri -->
+        <!-- Modal Edit Galeri -->
         <div class="modal fade" id="editModal{{$item->id}}" tabindex="-1" aria-labelledby="editModalLabel{{$item->id}}" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -93,8 +94,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                         </div>
                     </form>
                 </div>
@@ -112,7 +113,7 @@
 
         <!-- Alert Messages -->
         @if (Session::get('sukses'))
-            <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
+            <div class="alert alert-success alert-dismissible fade show mb-1 mt-2" role="alert">
                 <i class="fas fa-check-circle me-2"></i>
                 {{ Session::get('sukses') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
@@ -120,7 +121,7 @@
         @endif
         
         @if ($errors->any())
-            <div class="alert alert-danger alert-dismissible fade show mb-4" role="alert">
+            <div class="alert alert-danger alert-dismissible fade show mb-1 mt-2" role="alert">
                 <i class="fas fa-exclamation-triangle me-2"></i>
                 <strong>Terjadi kesalahan:</strong>
                 <ul class="mb-0 mt-2">
@@ -164,11 +165,11 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <button data-bs-toggle="modal" data-bs-target="#editModal{{$item->id}}" class="btn btn-sm btn-outline-warning" title="Edit">
+                                    <a data-bs-toggle="modal" data-bs-target="#editModal{{$item->id}}" class="btn bg-warning bg-opacity-25 text-warning" title="Edit">
                                         <i class="fas fa-edit"></i>
-                                    </button>
-                                    <a class="btn btn-sm btn-outline-danger" 
-                                        href="{{ route('eskul-delete', Crypt::encrypt($item->id)) }}" 
+                                    </a>
+                                    <a class="btn bg-danger bg-opacity-25 text-danger"
+                                        href="{{ route('galeri-delete',Crypt::encrypt($item->id)) }}" 
                                         onclick="return confirm('Hapus eskul {{ $item->nama_eskul }}?')"
                                         title="Hapus">
                                         <i class="fas fa-trash"></i>
@@ -182,6 +183,8 @@
         </div>
     </div>
 <script>
-    new DataTable('#example');
+    new DataTable('#example',{
+        responsive: true
+    });
 </script>
 @endsection

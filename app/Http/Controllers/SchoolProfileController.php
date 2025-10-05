@@ -62,6 +62,6 @@ class SchoolProfileController extends Controller
         }
         // Profile di Update
         $profile->update($validate);
-        return redirect()->back()->with('pesan','Berhasil mengubah Profile Sekolah');
+        return redirect()->back()->with('sukses','Berhasil mengubah Profile Sekolah');
     }
 }

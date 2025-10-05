@@ -16,6 +16,11 @@ class ExtracurricularController extends Controller
         $data['eskul'] = Extracurricular::all();
         return view('eskul', $data);
     }
+    public function EskulDetail($id){
+        $data['eskul'] = Extracurricular::findOrFail($id);
+        return view('eskul-detail', $data);
+
+    }
     public function Store(Request $request){
         // Validasi Input
         $validate = $request->validate([
@@ -78,6 +83,6 @@ class ExtracurricularController extends Controller
 
         // Profile di Update
         $eskul->update($validate);
-        return redirect()->back()->with('pesan','Berhasil mengubah galeri');
+        return redirect()->back()->with('sukses','Berhasil mengubah galeri');
     }
 }

@@ -32,8 +32,12 @@ class AdministratorController extends Controller
     }
     public function Index()
     {
+        $data['berita'] = News::all();
+        $data['siswa'] = Student::all();
+        $data['guru'] = Teacher::all();
+        $data['eskul'] = Extracurricular::all();
         $data['berita'] = News::latest()->take(4)->get();
-        return view('Administrator.dashbord', $data);
+        return view('Administrator.dashboard', $data);
     }
     public function Berita($id = null)
     {
@@ -63,6 +67,7 @@ class AdministratorController extends Controller
         }
         // Mengambil semua data Siswa lalu dikirim ke view Administrator/siswa
         $data['siswa'] = Student::all();
+        $data['user'] = User::all();
         return view('Administrator.siswa', $data);
     }
     public function Galeri($id = null)

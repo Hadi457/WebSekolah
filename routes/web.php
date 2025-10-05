@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [AdministratorController::class,'Home'])->name('home');
 Route::get('/profile-sekolah', [SchoolProfileController::class,'Index'])->name('profile-sekolah');
 Route::get('/eskul', [ExtracurricularController::class, 'Index'])->name('eskul');
-Route::get('/eskul/detail', [ExtracurricularController::class, 'EskulDetail'])->name('eskul-detail');
+Route::get('/eskul/detail/{id}', [ExtracurricularController::class, 'EskulDetail'])->name('eskul-detail');
 Route::get('/galeri', [GalleryController::class, 'Index'])->name('galeri');
 Route::get('/kontak', [ContactController::class, 'Index'])->name('kontak');
 Route::get('/berita', [NewsController::class, 'Index'])->name('berita');
@@ -29,7 +29,7 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/admin/berita/delete/{id}', [NewsController::class, 'Delete'])->name('berita-delete');
     Route::post('/admin/berita/update/{id}', [NewsController::class, 'Update'])->name('berita-update');
     // User
-    Route::get('/admin/user', [AdministratorController::class, 'User'])->name('user');
+    Route::get('/admin/user ', [AdministratorController::class, 'User'])->name('user');
     Route::post('/admin/user/create', [UserController::class, 'Store'])->name('user-store');
     Route::get('/admin/user/delete/{id}', [UserController::class, 'Delete'])->name('user-delete');
     Route::post('/admin/user/update/{id}', [UserController::class, 'Update'])->name('user-update');
