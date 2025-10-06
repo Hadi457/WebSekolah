@@ -122,7 +122,7 @@
                 <!-- Tombol Aksi -->
                 <div class="card border-0">
                     <div class="card-body text-center">
-                        <a href="/news" class="btn btn-berita w-100 w-md-auto d-block d-md-inline-block text-center mb-2">
+                        <a href="/berita" class="btn btn-berita w-100 w-md-auto d-block d-md-inline-block text-center mb-2">
                             Semua Berita
                         </a>
                         <a href="/" class="btn btn-beranda w-100 w-md-auto d-block d-md-inline-block text-center">

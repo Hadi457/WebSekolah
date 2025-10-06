@@ -32,8 +32,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
             </div>
@@ -73,8 +73,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                         </div>
                     </form>
                 </div>
@@ -85,8 +85,10 @@
     <div class="h-100">
         <div class="d-flex justify-content-between align-items-center px-3" style="border-top-left-radius: 10px; border-top-right-radius: 10px; background-color: #003F91;">
             <h3 class="fw-bold py-3 text-white">User</h3>
-            <!-- Button trigger modal -->
-            <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary d-flex align-items-center py-3 px-4" style="background-color: #6D326D; height: 25px; border: none; border-radius: 25px; font-size: 15px;">Tambah User</a>
+            @if(Auth::check() && Auth::user()->role == 'Admin')
+                <!-- Button trigger modal -->
+                <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary d-flex align-items-center py-3 px-4" style="background-color: #6D326D; height: 25px; border: none; border-radius: 25px; font-size: 15px;">Tambah User</a>
+            @endif
         </div>
         <!-- Alert Messages -->
         @if (Session::get('sukses'))
@@ -118,7 +120,9 @@
                             <th scope="col">Nama</th>
                             <th scope="col">Username</th>
                             <th scope="col">Role</th>
-                            <th scope="col">Aksi</th>
+                            @if(Auth::check() && Auth::user()->role == 'Admin')
+                                <th scope="col">Aksi</th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -133,14 +137,16 @@
                                         <span class="badge px-3" style="background-color: rgb(109, 50, 109, 0.50); color: #421D42;">Operator</span>
                                     @endif
                                 </td>
-                                <td>
-                                    <a class="btn bg-warning bg-opacity-25 text-warning" href="#" data-bs-toggle="modal" data-bs-target="#editModal{{ $item->id }}">
-                                        <i class="fa-solid fa-pen-to-square fs-5"></i>
-                                    </a>
-                                    <a class="btn bg-danger bg-opacity-25 text-danger" href="{{route('user-delete',Crypt::encrypt($item->id))}}" onclick="return confirm('Hapus data ini?')">
-                                        <i class="fa-solid fa-trash fs-5"></i>
-                                    </a>
-                                </td>
+                                @if(Auth::check() && Auth::user()->role == 'Admin')
+                                    <td>
+                                        <a class="btn bg-warning bg-opacity-25 text-warning" href="#" data-bs-toggle="modal" data-bs-target="#editModal{{ $item->id }}">
+                                            <i class="fa-solid fa-pen-to-square fs-5"></i>
+                                        </a>
+                                        <a class="btn bg-danger bg-opacity-25 text-danger" href="{{route('user-delete',Crypt::encrypt($item->id))}}" onclick="return confirm('Hapus data ini?')">
+                                            <i class="fa-solid fa-trash fs-5"></i>
+                                        </a>
+                                    </td>
+                                @endif
                             </tr>
                         @endforeach
                     </tbody>

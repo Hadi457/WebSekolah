@@ -137,21 +137,21 @@
                     <div class="text-center shadow p-4 p-md-5 mx-auto h-100" 
                         style="border-radius: 20px; background-color: #5DA9E9; color: white; max-width: 300px;">
                         <h4 class="fs-5 fs-md-4">Jumlah Guru</h4>
-                        <h1 class="fw-bold mt-2 display-6 display-md-5">33</h1>
+                        <h1 class="fw-bold mt-2 display-6 display-md-5">{{$gurucount->count()}}</h1>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="text-center shadow p-4 p-md-5 mx-auto h-100" 
                         style="border-radius: 20px; background-color: #5DA9E9; color: white; max-width: 300px;">
                         <h4 class="fs-5 fs-md-4">Jumlah Siswa</h4>
-                        <h1 class="fw-bold mt-2 display-6 display-md-5">333</h1>
+                        <h1 class="fw-bold mt-2 display-6 display-md-5">{{$siswacount->count()}}</h1>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="text-center shadow p-4 p-md-5 mx-auto h-100" 
                         style="border-radius: 20px; background-color: #5DA9E9; color: white; max-width: 300px;">
                         <h4 class="fs-5 fs-md-4">Eskul</h4>
-                        <h1 class="fw-bold mt-2 display-6 display-md-5">33</h1>
+                        <h1 class="fw-bold mt-2 display-6 display-md-5">{{$eskulcount->count()}}</h1>
                     </div>
                 </div>
             </div>

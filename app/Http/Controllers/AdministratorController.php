@@ -24,6 +24,11 @@ class AdministratorController extends Controller
     }
     public function Home()
     {
+        // Ambil semua dari berita, guru, siswa dan eskul lalu kirim ke view home
+        $data['siswacount'] = Student::all();
+        $data['gurucount'] = Teacher::all();
+        $data['eskulcount'] = Extracurricular::all();
+
         // Ambil 3 data terbaru dari berita, guru, dan galeri lalu kirim ke view home
         $data['berita'] = News::latest()->take(4)->get();
         $data['guru'] = Teacher::latest()->take(4)->get();

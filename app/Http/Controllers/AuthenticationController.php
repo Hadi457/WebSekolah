@@ -23,17 +23,15 @@ class AuthenticationController extends Controller
         // Login & redirect sesuai role (Admin, Operator, selain itu logout)
         if(Auth::attempt($validated)){
             $user = Auth::user();
-            if($user->role == 'Admin'){
-                return redirect()->route('dashbord');
-            } elseif($user->role == 'Operator'){
-                return redirect()->route('home');
-            } else {
+            if($user->role == 'Admin' || $user->role == 'Operator'){
+                return redirect()->route('dashboard');
+            }else {
                 Auth::logout();
                 return redirect()->route('login')->with('pesan', 'Access denied. Invalid role.');
             }
         } else {
         // Kalau username / password salah dikembalika ke halaman login
-            return redirect()->route('login')>with('pesan', 'Username atau Password salah!');
+            return redirect()->route('login')->with('pesan', 'Username atau Password salah!');
         }
         
     }

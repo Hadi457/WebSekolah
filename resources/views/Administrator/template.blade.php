@@ -153,7 +153,7 @@
             <div class="d-flex align-items-center w-100">
                 <img src="{{ asset('asset/image/sman6logo.png') }}" width="50" height="50" alt="" class="me-3">
                 <div class="flex-grow-1">
-                    <h5 class="text-white mb-0 fw-semibold">Admin</h5>
+                    <h5 class="text-white mb-0 fw-semibold">{{Auth::user()->role}}</h5>
                     <small class="text-white-50">SMA Negeri 6 Jakarta</small>
                 </div>
             </div>
@@ -199,7 +199,7 @@
                 <div class="d-flex align-items-center">
                     <img src="{{ asset('asset/image/sman6logo.png') }}" width="60" height="60" alt="" class="me-3">
                     <div>
-                        <h5 class="mb-1 fw-semibold">Admin</h5>
+                        <h5 class="mb-1 fw-semibold">{{Auth::user()->role}}</h5>
                         <small class="text-white-50">SMA Negeri 6 Jakarta</small>
                     </div>
                 </div>
@@ -241,7 +241,7 @@
             </nav>
             
             <div class="p-3 border-top border-secondary">
-                <a href="/logout" class="nav-link text-white rounded py-3 d-flex align-items-center">
+                <a href="/logout" class="nav-link text-white rounded py-3 d-flex align-items-center" style="margin-left: 19px;">
                     <i class="fas fa-right-from-bracket me-3 fs-5"></i>
                     <span>Logout</span>
                 </a>

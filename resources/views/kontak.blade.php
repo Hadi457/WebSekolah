@@ -3,7 +3,7 @@
     <div class="container mt-4 mt-md-5">
         <div class="row align-items-center g-4 g-md-5">
             <!-- Contact Information -->
-            <div class="col-12 col-lg-6 order-2 order-lg-1">
+            <div class="col-12 col-lg-6">
                 <div class="d-flex flex-column justify-content-center h-100">
                     <h3 class="fw-semibold mb-3 mb-md-4">Kontak</h3>
                     <ul class="list-unstyled mb-1 mb-md-2">
@@ -46,7 +46,7 @@
             </div>
 
             <!-- Contact Form -->
-            <div class="col-12 col-lg-6 order-1 order-lg-2">
+            <div class="col-12 col-lg-6">
                 <div class="d-flex flex-column justify-content-center h-100">
                     <h3 class="fw-semibold mb-3 mb-md-4">Hubungi Kami</h3>
                     <p class="mb-3 mb-md-4">

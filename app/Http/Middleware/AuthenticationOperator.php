@@ -17,7 +17,7 @@ class AuthenticationOperator
     public function handle(Request $request, Closure $next): Response
     {
         if(Auth::check()){
-            if(Auth::user()->role == 'Operator'){
+            if(Auth::user()->role == 'Operator' || Auth::user()->role == 'Admin'){
                 return $next($request);
             } else {
                 return redirect()->route('login')->with('pesan', 'Access denied. You are not an operator.');

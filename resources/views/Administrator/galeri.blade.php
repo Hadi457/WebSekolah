@@ -106,9 +106,11 @@
     <div class="h-100">
         <!-- Header -->
         <div class="d-flex justify-content-between align-items-center px-3 mb-3" style="border-top-left-radius: 10px; border-top-right-radius: 10px; background-color: #003F91;">
-            <h3 class="fw-bold py-3 text-white">Ekstrakurikuler</h3>
-            <!-- Button trigger modal -->
-            <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary d-flex align-items-center py-3 px-4" style="background-color: #6D326D; height: 25px; border: none; border-radius: 25px; font-size: 15px;">Tambah Eskul</a>
+            <h3 class="fw-bold py-3 text-white">Galeri</h3>
+            @if(Auth::check() && Auth::user()->role == 'Admin')
+                <!-- Button trigger modal -->
+                <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary d-flex align-items-center py-3 px-4" style="background-color: #6D326D; height: 25px; border: none; border-radius: 25px; font-size: 15px;">Tambah Galeri</a>
+            @endif
         </div>
 
         <!-- Alert Messages -->

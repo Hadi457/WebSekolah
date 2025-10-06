@@ -22,7 +22,7 @@ Route::get('/berita/detail/{id}', [NewsController::class, 'BeritaDetail'])->name
 Route::get('/guru', [TeacherController::class, 'Index'])->name('guru');
 
 Route::middleware(['admin'])->group(function () {
-    Route::get('/admin/dashboard', [AdministratorController::class, 'Index'])->name('dashbord');
+    Route::get('/admin/dashboard', [AdministratorController::class, 'Index'])->name('dashboard');
     // Berita
     Route::get('/admin/berita', [AdministratorController::class, 'Berita'])->name('admin-berita');
     Route::post('/admin/berita/create', [NewsController::class, 'Store'])->name('berita-store');
@@ -58,6 +58,29 @@ Route::middleware(['admin'])->group(function () {
     Route::post('/admin/profile-sekolah/edit/{id}', [SchoolProfileController::class, 'Update'])->name('profile-sekolah-update');
 });
 
+Route::middleware(['operator'])->group(function () {
+    Route::get('/admin/dashboard', [AdministratorController::class, 'Index'])->name('dashboard');
+    // Berita
+    Route::get('/admin/berita', [AdministratorController::class, 'Berita'])->name('admin-berita');
+    Route::post('/admin/berita/create', [NewsController::class, 'Store'])->name('berita-store');
+    Route::get('/admin/berita/delete/{id}', [NewsController::class, 'Delete'])->name('berita-delete');
+    Route::post('/admin/berita/update/{id}', [NewsController::class, 'Update'])->name('berita-update');
+
+    Route::get('/admin/user ', [AdministratorController::class, 'User'])->name('user');
+    Route::get('/admin/guru', [AdministratorController::class, 'Guru'])->name('admin-guru');
+    Route::get('/admin/siswa', [AdministratorController::class, 'Siswa'])->name('siswa');
+    Route::get('/admin/profile-sekolah', [AdministratorController::class, 'ProfileSekolah'])->name('profile-sekolah');
+    // Galeri
+    Route::get('/admin/galeri', [AdministratorController::class, 'Galeri'])->name('admin-galeri');
+    Route::post('/admin/galeri/create', [GalleryController::class, 'Store'])->name('galeri-store');
+    Route::get('/admin/galeri/delete/{id}', [GalleryController::class, 'Delete'])->name('galeri-delete');
+    Route::post('/admin/galeri/update/{id}', [GalleryController::class, 'Update'])->name('galeri-update');
+    // Eskul
+    Route::get('/admin/eskul', [AdministratorController::class, 'Eskul'])->name('admin-eskul');
+    Route::post('/admin/eskul/create', [ExtracurricularController::class, 'Store'])->name('eskul-store');
+    Route::get('/admin/eskul/delete/{id}', [ExtracurricularController::class, 'Delete'])->name('eskul-delete');
+    Route::post('/admin/eskul/update/{id}', [ExtracurricularController::class, 'Update'])->name('eskul-update');
+});
 
 Route::get('/login', [AuthenticationController::class, 'Auth'])->name('login');
 Route::post('/login', [AuthenticationController::class, 'Authentication'])->name('authentication');

@@ -178,10 +178,10 @@
             </div>
         @endif
         <div class="container py-4">
-            <div class="row g-4">
-                <div class="col-md-3">
-                    <div class="card border-0 rounded-4 shadow h-100 overflow-hidden">
-                        <div class="card-body text-center p-4 position-relative">
+            <div class="row g-3" >
+                <div class="col-md-3 col-6">
+                    <div class="card border-0 rounded-4 shadow h-100 w-100 overflow-hidden">
+                        <div class="card-body text-center p-4">
                             <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
                                 <i class="fas fa-chalkboard-teacher fa-2x text-primary"></i>
                             </div>
@@ -191,9 +191,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card border-0 rounded-4 shadow h-100 overflow-hidden">
-                        <div class="card-body text-center p-4 position-relative">
+                <div class="col-md-3 col-6">
+                    <div class="card border-0 rounded-4 shadow h-100 w-100 overflow-hidden">
+                        <div class="card-body text-center p-4">
                             <div class="bg-success bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
                                 <i class="fas fa-user-graduate fa-2x text-success"></i>
                             </div>
@@ -203,9 +203,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card border-0 rounded-4 shadow h-100 overflow-hidden">
-                        <div class="card-body text-center p-4 position-relative">
+                <div class="col-md-3 col-6">
+                    <div class="card border-0 rounded-4 shadow h-100 w-100 overflow-hidden">
+                        <div class="card-body text-center p-4">
                             <div class="bg-warning bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
                                 <i class="fas fa-newspaper fa-2x text-warning"></i>
                             </div>
@@ -215,9 +215,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card border-0 rounded-4 shadow h-100 overflow-hidden">
-                        <div class="card-body text-center p-4 position-relative">
+                <div class="col-md-3 col-6">
+                    <div class="card border-0 rounded-4 shadow h-100 w-100 overflow-hidden">
+                        <div class="card-body text-center p-4">
                             <div class="bg-danger bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
                                 <i class="fas fa-futbol fa-2x text-danger"></i>
                             </div>
@@ -235,30 +235,32 @@
                 <div class="card-body">
                     <h5 class="fw-bold mb-3">Quick Actions</h5>
                     <div class="row g-3" >
-                        <div class="col-md-3 col-6">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#guruModal" class="btn btn-outline-primary w-100 d-flex flex-column align-items-center py-3">
-                                <i class="fas fa-plus-circle fa-2x mb-2"></i>
-                                <span>Tambah Guru</span>
-                            </a>
-                        </div>
-                        <div class="col-md-3 col-6">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#siswaModal" class="btn btn-outline-success w-100 d-flex flex-column align-items-center py-3">
-                                <i class="fas fa-user-graduate fa-2x mb-2"></i>
-                                <span>Tambah Siswa</span>
-                            </a>
-                        </div>
-                        <div class="col-md-3 col-6">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#beritaModal" class="btn btn-outline-warning w-100 d-flex flex-column align-items-center py-3">
-                                <i class="fas fa-newspaper fa-2x mb-2"></i>
-                                <span>Buat Berita</span>
-                            </a>
-                        </div>
-                        <div class="col-md-3 col-6">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#eskulModal" class="btn btn-outline-danger w-100 d-flex flex-column align-items-center py-3">
-                                <i class="fas fa-futbol fa-2x mb-2"></i>
-                                <span>Tambah Ekstrakurikuler</span>
-                            </a>
-                        </div>
+                        @if(Auth::check() && Auth::user()->role == 'Admin')
+                            <div class="col-md-3 col-6">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#guruModal" class="btn btn-outline-primary w-100 d-flex flex-column align-items-center py-3">
+                                    <i class="fas fa-plus-circle fa-2x mb-2"></i>
+                                    <span>Tambah Guru</span>
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#siswaModal" class="btn btn-outline-success w-100 d-flex flex-column align-items-center py-3">
+                                    <i class="fas fa-user-graduate fa-2x mb-2"></i>
+                                    <span>Tambah Siswa</span>
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#beritaModal" class="btn btn-outline-warning w-100 d-flex flex-column align-items-center py-3">
+                                    <i class="fas fa-newspaper fa-2x mb-2"></i>
+                                    <span>Buat Berita</span>
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#eskulModal" class="btn btn-outline-danger w-100 d-flex flex-column align-items-center py-3">
+                                    <i class="fas fa-futbol fa-2x mb-2"></i>
+                                    <span>Tambah Ekstrakurikuler</span>
+                                </a>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

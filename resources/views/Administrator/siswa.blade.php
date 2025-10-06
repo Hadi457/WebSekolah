@@ -84,10 +84,11 @@
     <div class="h-100">
         <div class="d-flex justify-content-between align-items-center px-3" style="border-top-left-radius: 10px; border-top-right-radius: 10px; background-color: #003F91;">
             <h3 class="fw-bold py-3 text-white">Siswa</h3>
-            <!-- Button trigger modal -->
-            <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary d-flex align-items-center py-3 px-4" style="background-color: #6D326D; height: 25px; border: none; border-radius: 25px; font-size: 15px;">Tambah Siswa</a>
+            @if(Auth::check() && Auth::user()->role == 'Admin')
+                <!-- Button trigger modal -->
+                <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary d-flex align-items-center py-3 px-4" style="background-color: #6D326D; height: 25px; border: none; border-radius: 25px; font-size: 15px;">Tambah Siswa</a>
+            @endif
         </div>
-
         <!-- Alert Messages -->
         @if (Session::get('sukses'))
             <div class="alert alert-success alert-dismissible fade show mb-1 mt-2" role="alert">
@@ -119,7 +120,9 @@
                             <th scope="col">Nama Siswa</th>
                             <th scope="col">Jenis Kelamin</th>
                             <th scope="col">Tahun Masuk</th>
-                            <th scope="col">Aksi</th>
+                            @if(Auth::check() && Auth::user()->role == 'Admin')
+                                <th scope="col">Aksi</th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -129,14 +132,16 @@
                                 <td>{{$item->nama_siswa}}</td>
                                 <td>{{$item->jenis_kelamin}}</td>
                                 <td>{{$item->tahun_masuk}}</td>
-                                <td>
-                                    <a class="btn bg-warning bg-opacity-25 text-warning" href="#" data-bs-toggle="modal" data-bs-target="#editModal{{$item->id}}">
-                                        <i class="fa-solid fa-pen-to-square"></i>
-                                    </a>
-                                    <a class="btn bg-danger bg-opacity-25 text-danger" href="{{route('siswa-delete',Crypt::encrypt($item->id))}}" onclick="return confirm('Hapus data ini?')">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </a>
-                                </td>
+                                @if(Auth::check() && Auth::user()->role == 'Admin')
+                                    <td>
+                                        <a class="btn bg-warning bg-opacity-25 text-warning" href="#" data-bs-toggle="modal" data-bs-target="#editModal{{$item->id}}">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </a>
+                                        <a class="btn bg-danger bg-opacity-25 text-danger" href="{{route('siswa-delete',Crypt::encrypt($item->id))}}" onclick="return confirm('Hapus data ini?')">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </a>
+                                    </td>
+                                @endif
                             </tr>
                         @endforeach
                     </tbody>

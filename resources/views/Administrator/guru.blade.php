@@ -88,8 +88,10 @@
     <div class="h-100">
         <div class="d-flex justify-content-between align-items-center px-3" style="border-top-left-radius: 10px; border-top-right-radius: 10px; background-color: #003F91;">
             <h3 class="fw-bold py-3 text-white">Guru</h3>
-            <!-- Button trigger modal -->
-            <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary d-flex align-items-center py-3 px-4" style="background-color: #6D326D; height: 25px; border: none; border-radius: 25px; font-size: 15px;">Tambah Guru</a>
+            @if(Auth::check() && Auth::user()->role == 'Admin')
+                <!-- Button trigger modal -->
+                <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary d-flex align-items-center py-3 px-4" style="background-color: #6D326D; height: 25px; border: none; border-radius: 25px; font-size: 15px;">Tambah Guru</a>
+            @endif
         </div>
 
         <!-- Alert Messages -->
@@ -123,7 +125,9 @@
                             <th scope="col">Nama Guru</th>
                             <th scope="col">Mapel</th>
                             <th scope="col">Foto</th>
-                            <th scope="col">Aksi</th>
+                            @if(Auth::check() && Auth::user()->role == 'Admin')
+                                <th scope="col">Aksi</th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -135,14 +139,16 @@
                                 <td>
                                     <img src="{{asset('storage/foto-teacher/'.$item->foto)}}" width="100" height="100" style="object-fit: cover;" alt="">
                                 </td>
-                                <td>
-                                    <a class="btn bg-warning bg-opacity-25 text-warning" href="#" data-bs-toggle="modal" data-bs-target="#editModal{{ $item->id }}">
-                                        <i class="fa-solid fa-pen-to-square"></i>
-                                    </a>
-                                    <a class="btn bg-danger bg-opacity-25 text-danger" href="{{route('guru-delete',Crypt::encrypt($item->id))}}" onclick="return confirm('Hapus data ini?')">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </a>
-                                </td>
+                                @if(Auth::check() && Auth::user()->role == 'Admin')
+                                    <td>
+                                        <a class="btn bg-warning bg-opacity-25 text-warning" href="#" data-bs-toggle="modal" data-bs-target="#editModal{{ $item->id }}">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </a>
+                                        <a class="btn bg-danger bg-opacity-25 text-danger" href="{{route('guru-delete',Crypt::encrypt($item->id))}}" onclick="return confirm('Hapus data ini?')">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </a>
+                                    </td>
+                                @endif
                             </tr>
                         @endforeach
                     </tbody>
