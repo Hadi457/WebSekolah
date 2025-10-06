@@ -101,7 +101,7 @@
             <div class="card shadow-sm border-0 mb-4">
                 <div class="card-header text-white py-3" style="background-color: #003F91;">
                     <h6 class="card-title mb-0">
-                        <i class="bi bi-clock me-2"></i>
+                        <i class="fa-solid fa-clock me-2"></i>
                         Berita Terbaru
                     </h6>
                 </div>
