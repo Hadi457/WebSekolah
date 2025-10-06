@@ -15,9 +15,9 @@
         margin: 1rem 0;
     }
     .btn-berita{
-        border: 1px solid  #6D326D; 
-        color: #6D326D; 
-        border-radius: 8px; 
+        border: 1px solid  #6D326D;
+        color: #6D326D;
+        border-radius: 8px;
         padding: 10px 20px;
     }
     .btn-berita:hover{
@@ -55,7 +55,7 @@
             <div class="card shadow-sm border-0 mb-4">
                 <div class="card-body">
                     <h1 class="h2 fw-bold text-dark mb-3">{{ $news->judul }}</h1>
-                    
+
                     <div class="d-flex align-items-center text-muted mb-3">
                         <div class="d-flex align-items-center me-4">
                             <i class="far fa-calendar me-2"></i>
@@ -65,8 +65,8 @@
 
                     <!-- Gambar Utama -->
                     <div class="mb-4">
-                        <img src="{{ asset('storage/news-image/' . $news->gambar) }}" alt="{{ $news->judul }}" 
-                             class="img-fluid rounded w-100" style="max-height: 400px; object-fit: cover;">
+                        <img src="{{ asset('storage/news-image/' . $news->gambar) }}" alt="{{ $news->judul }}"
+                            class="img-fluid rounded w-100" style="max-height: 400px; object-fit: cover;">
                     </div>
 
                     <!-- Isi Berita -->
@@ -81,13 +81,13 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div class="flex-shrink-0">
-                            <div class="bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center" 
-                                 style="width: 50px; height: 50px;">
+                            <div class="bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
+                                style="width: 50px; height: 50px;">
                                 <i class="fa-solid fa-user text-primary"></i>
                             </div>
                         </div>
                         <div class="flex-grow-1 ms-3">
-                            <h6 class="mb-1">Ditulis oleh : {{ $news->user->name }}</h6>
+                            <h6 class="mb-1">Ditulis oleh : {{ $news->user->nama }}</h6>
                             <p class="text-muted mb-0 small">Pada {{ \Carbon\Carbon::parse($news->created_at)->translatedFormat('d F Y H:i') }}</p>
                         </div>
                     </div>
@@ -150,9 +150,9 @@
                         @foreach($berita as $item)
                         <div class="col-md-3 mb-3">
                             <div class="card h-100 border-0 shadow-sm">
-                                <img src="{{ asset('storage/news-image/' . $item->gambar) }}" 
-                                     class="card-img-top" alt="{{ $item->judul }}" 
-                                     style="height: 150px; object-fit: cover;">
+                                <img src="{{ asset('storage/news-image/' . $item->gambar) }}"
+                                    class="card-img-top" alt="{{ $item->judul }}"
+                                    style="height: 150px; object-fit: cover;">
                                 <div class="card-body">
                                     <h6 class="card-title">
                                         <a href="{{ route('berita-detail', $item->id) }}" class="text-decoration-none text-dark">

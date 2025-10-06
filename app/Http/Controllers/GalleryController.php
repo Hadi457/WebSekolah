@@ -20,7 +20,7 @@ class GalleryController extends Controller
         $validate = $request->validate([
             'judul'      => 'required|string|max:150',
             'keterangan' => 'required|string',
-            'file'       => 'required|file|mimes:jpg,jpeg,png,webp,mp4,mov,avi|max:10240',
+            'file'       => 'required|file|mimes:jpg,jpeg,png,webp,mp4,mov,avi',
             'kategori'  => 'required|in:Foto,Video',
         ]);
 
@@ -29,9 +29,9 @@ class GalleryController extends Controller
         $filename = time(). "-" . $request->judul . "." . $image->getClientOriginalExtension();
         $image->storeAs('public/gallery', $filename);
         $validate['file'] = $filename;
-        
+
         $validate['tanggal'] = now();
-        
+
         // Simpan Gallery ke databse
         Gallery::create($validate);
         return redirect()->back()->with('sukses', 'Berhasil menambahkan Gallery');

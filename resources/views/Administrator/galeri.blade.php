@@ -68,8 +68,8 @@
                                 <div class="mb-3">
                                     <label class="form-label fw-semibold">Gambar Saat Ini<span class="text-danger">*</span></label>
                                     <div class="mt-2">
-                                        <img src="{{ asset('storage/gallery/' . $item->file) }}" 
-                                            alt="{{ $item->judul }}" 
+                                        <img src="{{ asset('storage/gallery/' . $item->file) }}"
+                                            alt="{{ $item->judul }}"
                                             style="max-width: 100%; height: 100px; object-fit: cover; border-radius: 5px;">
                                         <p class="small text-muted mt-1">{{ $item->judul }}</p>
                                     </div>
@@ -107,10 +107,8 @@
         <!-- Header -->
         <div class="d-flex justify-content-between align-items-center px-3 mb-3" style="border-top-left-radius: 10px; border-top-right-radius: 10px; background-color: #003F91;">
             <h3 class="fw-bold py-3 text-white">Galeri</h3>
-            @if(Auth::check() && Auth::user()->role == 'Admin')
-                <!-- Button trigger modal -->
-                <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary d-flex align-items-center py-3 px-4" style="background-color: #6D326D; height: 25px; border: none; border-radius: 25px; font-size: 15px;">Tambah Galeri</a>
-            @endif
+            <!-- Button trigger modal -->
+            <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary d-flex align-items-center py-3 px-4" style="background-color: #6D326D; height: 25px; border: none; border-radius: 25px; font-size: 15px;">Tambah Galeri</a>
         </div>
 
         <!-- Alert Messages -->
@@ -119,9 +117,9 @@
                 <i class="fas fa-check-circle me-2"></i>
                 {{ Session::get('sukses') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            </div>  
+            </div>
         @endif
-        
+
         @if ($errors->any())
             <div class="alert alert-danger alert-dismissible fade show mb-1 mt-2" role="alert">
                 <i class="fas fa-exclamation-triangle me-2"></i>
@@ -134,7 +132,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
         @endif
-            
+
         <div class="bg-light p-3 rounded">
             <div class="table-responsive min-vh-100">
                 <table id="example" class="table w-100 table-striped">
@@ -149,7 +147,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($galeri as $item)   
+                        @foreach ($galeri as $item)
                             <tr>
                                 <td scope="row">{{$item->judul}}</td>
                                 <td>{{$item->keterangan}}</td>
@@ -171,7 +169,7 @@
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     <a class="btn bg-danger bg-opacity-25 text-danger"
-                                        href="{{ route('galeri-delete',Crypt::encrypt($item->id)) }}" 
+                                        href="{{ route('galeri-delete',Crypt::encrypt($item->id)) }}"
                                         onclick="return confirm('Hapus eskul {{ $item->nama_eskul }}?')"
                                         title="Hapus">
                                         <i class="fas fa-trash"></i>

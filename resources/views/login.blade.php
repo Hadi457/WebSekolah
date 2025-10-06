@@ -41,9 +41,9 @@
                             @endif
                             <div class="row align-items-center">
                                 <div class="col-12 col-md-6 text-center mb-4 mb-md-0">
-                                    <img src="{{asset('asset/image/sman6logo.png')}}" 
-                                         class="img-fluid" 
-                                         style="max-width: 200px; height: auto;" 
+                                    <img src="{{asset('asset/image/sman6logo.png')}}"
+                                         class="img-fluid"
+                                         style="max-width: 200px; height: auto;"
                                          alt="">
                                 </div>
                                 <div class="col-12 col-md-6">

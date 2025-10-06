@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Crypt;
 
 class AdministratorController extends Controller
 {
+    public function Template(){
+        $data['data'] = SchoolProfile::all();
+        return view('administrator.template', $data);
+    }
     public function decrypId($id){
         try {
             return Crypt::decrypt($id);

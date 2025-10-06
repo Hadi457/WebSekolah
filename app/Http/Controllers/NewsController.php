@@ -34,7 +34,7 @@ class NewsController extends Controller
         $validate['user_id'] = Auth::user()->id;
 
         $validate['tanggal'] = now();
-        
+
         // Simpan data Berita ke database
         News::create($validate);
         return redirect()->back()->with('sukses', 'Berhasil membuat berita');
@@ -55,14 +55,14 @@ class NewsController extends Controller
         $berita->delete();
         return redirect()->back()->with('sukses','Berhasil menghapus berita');
     }
-    
+
     public function BeritaDetail($id){
-    $data['news'] = News::with('user')->findOrFail($id);
-    $data['terkini'] = News::orderBy('tanggal', 'desc')->limit(7)->get();
-    $data['berita'] = News::orderBy('tanggal', 'desc')->limit(4)->get();
-    
-    return view('berita-detail', $data);
-}
+        $data['news'] = News::with('user')->findOrFail($id);
+        $data['terkini'] = News::orderBy('tanggal', 'desc')->limit(7)->get();
+        $data['berita'] = News::orderBy('tanggal', 'desc')->limit(4)->get();
+
+        return view('berita-detail', $data);
+    }
 
     public function Update(Request $request, String $id){
         // Mengubah id yang di enkripsi menjadi ke id asalnya

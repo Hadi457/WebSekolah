@@ -134,6 +134,7 @@
     <link rel="stylesheet" href="{{ asset('asset/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/fontawesome/css/all.min.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
     <link href="https://cdn.datatables.net/v/dt/dt-2.0.2/datatables.min.css" rel="stylesheet">
     <script src="https://cdn.datatables.net/v/dt/dt-2.0.2/datatables.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
@@ -161,28 +162,28 @@
         </div>
         <div class="offcanvas-body p-0">
             <nav class="nav flex-column">
-                <a href="/admin/dashboard" class="nav-link text-white py-3 px-3 border-bottom border-secondary d-flex align-items-center">
+                <a href="/admin/dashboard" class="nav-link text-white py-3 px-3 d-flex align-items-center">
                     <i class="fas fa-dashboard me-3 fs-6"></i>Dashboard
                 </a>
-                <a href="/admin/user" class="nav-link text-white py-3 px-3 border-bottom border-secondary d-flex align-items-center">
+                <a href="/admin/user" class="nav-link text-white py-3 px-3 d-flex align-items-center">
                     <i class="fas fa-user me-3 fs-6"></i>Users
                 </a>
-                <a href="/admin/guru" class="nav-link text-white py-3 px-3 border-bottom border-secondary d-flex align-items-center">
+                <a href="/admin/guru" class="nav-link text-white py-3 px-3 d-flex align-items-center">
                     <i class="fas fa-chalkboard-user me-3 fs-6"></i>Guru
                 </a>
-                <a href="/admin/siswa" class="nav-link text-white py-3 px-3 border-bottom border-secondary d-flex align-items-center">
+                <a href="/admin/siswa" class="nav-link text-white py-3 px-3 d-flex align-items-center">
                     <i class="fas fa-user-graduate me-3 fs-6"></i>Siswa
                 </a>
-                <a href="/admin/galeri" class="nav-link text-white py-3 px-3 border-bottom border-secondary d-flex align-items-center">
+                <a href="/admin/galeri" class="nav-link text-white py-3 px-3 d-flex align-items-center">
                     <i class="fas fa-image me-3 fs-6"></i>Galeri
                 </a>
-                <a href="/admin/berita" class="nav-link text-white py-3 px-3 border-bottom border-secondary d-flex align-items-center">
+                <a href="/admin/berita" class="nav-link text-white py-3 px-3 d-flex align-items-center">
                     <i class="fas fa-newspaper me-3 fs-6"></i>Berita
                 </a>
-                <a href="/admin/eskul" class="nav-link text-white py-3 px-3 border-bottom border-secondary d-flex align-items-center">
+                <a href="/admin/eskul" class="nav-link text-white py-3 px-3 d-flex align-items-center">
                     <i class="fas fa-futbol me-3 fs-6"></i>Ekstrakurikuler
                 </a>
-                <a href="/admin/profile-sekolah" class="nav-link text-white py-3 px-3 border-bottom border-secondary d-flex align-items-center">
+                <a href="/admin/profile-sekolah" class="nav-link text-white py-3 px-3 d-flex align-items-center">
                     <i class="fas fa-school me-3 fs-6"></i>Profile Sekolah
                 </a>
                 <a href="/logout" class="nav-link text-white py-3 px-3 d-flex align-items-center">
@@ -204,7 +205,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <nav class="nav flex-column flex-grow-1 p-3">
                 <a href="/admin/dashboard" class="nav-link text-white rounded py-3 mb-2 d-flex align-items-center">
                     <i class="fas fa-dashboard me-3 fs-5"></i>
@@ -239,7 +240,7 @@
                     <span>Profile Sekolah</span>
                 </a>
             </nav>
-            
+
             <div class="p-3 border-top border-secondary">
                 <a href="/logout" class="nav-link text-white rounded py-3 d-flex align-items-center" style="margin-left: 19px;">
                     <i class="fas fa-right-from-bracket me-3 fs-5"></i>
