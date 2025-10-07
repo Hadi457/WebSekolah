@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gallery;
+use App\Models\SchoolProfile;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -12,6 +13,8 @@ class GalleryController extends Controller
 {
     public function Index()
     {
+        $data['profile'] = SchoolProfile::first();
+
         $data['galeri'] = Gallery::all();
         return view('galeri',$data);
     }

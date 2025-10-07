@@ -20,7 +20,7 @@
                     <h5 class="mb-2 mb-md-3">Selamat Datang</h5>
                     <h1 class="mb-2 mb-md-3 fw-bold display-6 display-md-5 display-lg-4">Masa Depan Gemilang<br>Dimulai dari Sini</h1>
                     <p class="mb-3 mb-md-4 fs-6 fs-md-5">
-                        SMA Negri 6 Jakarta hadir sebagai tempat tumbuhnya generasi berprestasi.
+                        {{ $profile->nama_sekolah }} hadir sebagai tempat tumbuhnya generasi berprestasi.
                         Kami tidak hanya mengedepankan akademik, tetapi juga karakter, kreativitas,
                         dan kepedulian sosial untuk menyiapkan siswa menghadapi masa depan.
                     </p>
@@ -207,17 +207,17 @@
                 <img src="{{asset('asset/image/undraw_stars_5pgw.svg')}}" class="img-fluid w-75 w-md-50 w-lg-75" alt="">
             </div>
             <div class="col-12 col-lg-6">
-                <h3 class="mb-3">SMA Negri 6 Jakarta</h3>
+                <h3 class="mb-3">{{ $profile->nama_sekolah }}</h3>
                 <p class="mb-3">
-                    SMA Negri 6 Jakarta adalah institusi pendidikan menengah atas yang berkomitmen untuk memberikan pendidikan berkualitas tinggi kepada siswa-siswinya.
+                    {{ $profile->nama_sekolah }} adalah institusi pendidikan menengah atas yang berkomitmen untuk memberikan pendidikan berkualitas tinggi kepada siswa-siswinya.
                     Dengan fasilitas modern dan tenaga pengajar yang berpengalaman, kami berusaha menciptakan lingkungan belajar yang inspiratif dan mendukung perkembangan akademik serta karakter siswa.
                 </p>
                 <p class="mb-3">
-                    Terletak di jantung kota Jakarta, SMA Negri 6 Jakarta menawarkan berbagai program akademik dan ekstrakurikuler yang dirancang untuk mengembangkan potensi siswa secara menyeluruh.
+                    Terletak di jantung kota Jakarta, {{ $profile->nama_sekolah }} menawarkan berbagai program akademik dan ekstrakurikuler yang dirancang untuk mengembangkan potensi siswa secara menyeluruh.
                     Kami percaya bahwa setiap siswa memiliki bakat unik yang perlu diasah dan dikembangkan untuk mencapai kesuksesan di masa depan.
                 </p>
                 <p class="mb-4">
-                    Bergabunglah dengan kami di SMA Negri 6 Jakarta, di mana masa depan gemilang dimulai dari sini.
+                    Bergabunglah dengan kami di {{ $profile->nama_sekolah }}, di mana masa depan gemilang dimulai dari sini.
                 </p>
                 <a href="/profile-sekolah" class="btn btn-primary px-5 w-md-auto d-block d-md-inline-block text-center"
                     style="background-color: #6D326D; border: none; border-radius: 20px; padding: 10px 20px;">

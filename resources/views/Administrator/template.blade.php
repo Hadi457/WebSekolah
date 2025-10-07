@@ -130,7 +130,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin SMA 6 Jakarta</title>
+    <title>Admin SMA 1</title>
     <link rel="stylesheet" href="{{ asset('asset/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/fontawesome/css/all.min.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -201,7 +201,7 @@
                     <img src="{{ asset('asset/image/sman6logo.png') }}" width="60" height="60" alt="" class="me-3">
                     <div>
                         <h5 class="mb-1 fw-semibold">{{Auth::user()->role}}</h5>
-                        <small class="text-white-50">SMA Negeri 6 Jakarta</small>
+                        <small class="text-white-50">SMA 1</small>
                     </div>
                 </div>
             </div>

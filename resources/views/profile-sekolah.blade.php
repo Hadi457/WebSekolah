@@ -2,7 +2,7 @@
 @section('content')
     <!-- Hero Section -->
     <div style="height: 450px; background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0)),
-    url('{{ asset('asset/image/1.jpg')}}'); background-size: cover; background-position: center;"
+    url('{{ asset('asset/image/1.jpeg')}}'); background-size: cover; background-position: center;"
     class="d-flex justify-content-center align-items-center flex-column text-center p-3">
         <h1 class="text-white fw-bold display-5 display-md-4 display-lg-3">Profil Sekolah</h1>
         <h5 class="text-white fw-semibold mt-2 mt-md-3 fs-6 fs-md-5">
@@ -74,7 +74,7 @@
                         <div class="card border-0 shadow-sm">
                             <div class="card-body p-3 p-md-4">
                                 <h5 class="card-title fw-bold mb-3">Sambutan Kepala Sekolah</h5>
-                                <p class="mb-0">
+                                <p class="mb-0" style="white-space: pre-line;">
                                     {{$profile->deskripsi}}
                                 </p>
                             </div>
@@ -111,7 +111,7 @@
         <div class="row align-items-center g-4 g-md-5">
             <div class="col-12 col-lg-6 order-2 order-lg-1">
                 <h3 class="fw-bold fs-4 fs-md-3 ps-3" style="border-left: 5px solid #6D326D;">Visi Misi</h3>
-                <p class="mt-3 mb-0">
+                <p class="mt-3 mb-0" style="white-space: pre-line;">
                     {{$profile->visi_misi}}
                 </p>
             </div>

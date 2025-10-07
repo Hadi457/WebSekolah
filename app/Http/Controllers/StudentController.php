@@ -18,12 +18,10 @@ class StudentController extends Controller
             'tahun_masuk'   => 'required|digits:4|integer|min:2000|max:' . date('Y'),
         ]);
 
-        // Ambil hanya tahun dari input tanggal
-        $validate['tahun_masuk'] = date('Y', strtotime($request->tahun_masuk));
 
         // Simpan sata Siswa ke database
         Student::create($validate);
-        
+
         // Redirect balik dengan pesan sukses
         return redirect()->back()->with('sukses', 'Berhasil membuat data Siswa');
     }
@@ -52,8 +50,6 @@ class StudentController extends Controller
             'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
             'tahun_masuk'   => 'required|digits:4|integer|min:2000|max:' . date('Y'),
         ]);
-        // Ambil hanya tahun dari input tanggal
-        $validate['tahun_masuk'] = date('Y', strtotime($request->tahun_masuk));
         $siswa = Student::findOrFail($id);
         // Siswa di Update
         $siswa->update($validate);

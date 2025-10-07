@@ -46,7 +46,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Tambah Siswa</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Siswa</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form action="{{route('siswa-update', Crypt::encrypt($item->id))}}" method="post">
@@ -95,9 +95,9 @@
                 <i class="fas fa-check-circle me-2"></i>
                 {{ Session::get('sukses') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            </div>  
+            </div>
         @endif
-        
+
         @if ($errors->any())
             <div class="alert alert-danger alert-dismissible fade show mb-1 mt-2" role="alert">
                 <i class="fas fa-exclamation-triangle me-2"></i>
@@ -126,7 +126,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($siswa as $item)    
+                        @foreach ($siswa as $item)
                             <tr>
                                 <td scope="row">{{$item->nisn}}</td>
                                 <td>{{$item->nama_siswa}}</td>

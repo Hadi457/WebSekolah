@@ -9,15 +9,15 @@
                     <ul class="list-unstyled mb-1 mb-md-2">
                         <li class="mb-2 mb-md-3">
                             <i class="fas fa-envelope me-2 text-dark"></i>
-                            Email : info@sman6jkt.sch.id
+                            Email : info@sma1.sch.id
                         </li>
                         <li class="mb-2 mb-md-3">
                             <i class="fas fa-phone me-2 text-dark"></i>
-                            Telpon : 021-7208762
+                            Telpon : {{ $profile->kontak }}
                         </li>
                         <li class="mb-2 mb-md-3">
                             <i class="fas fa-map-marker-alt me-2 text-dark"></i>
-                            Alamat : Jl. Mahakam 1 Blok C No. 2
+                            Alamat : {{ $profile->alamat }}
                         </li>
                         <li class="mt-3 mt-md-4 mb-2">
                             Ikuti Sosial Media Kami
@@ -38,8 +38,8 @@
                         </a>
                     </div>
                     <div class="text-center text-lg-start">
-                        <img src="{{asset('asset/image/undraw_contact-us_kcoa.svg')}}" 
-                             class="img-fluid w-75 w-md-50 w-lg-75" 
+                        <img src="{{asset('asset/image/undraw_contact-us_kcoa.svg')}}"
+                             class="img-fluid w-75 w-md-50 w-lg-75"
                              alt="Contact Illustration">
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                 <div class="d-flex flex-column justify-content-center h-100">
                     <h3 class="fw-semibold mb-3 mb-md-4">Hubungi Kami</h3>
                     <p class="mb-3 mb-md-4">
-                        Jika Anda memiliki pertanyaan, saran, atau ingin menghubungi kami, silakan isi formulir di bawah ini. 
+                        Jika Anda memiliki pertanyaan, saran, atau ingin menghubungi kami, silakan isi formulir di bawah ini.
                         Kami akan dengan senang hati membantu Anda.
                     </p>
                     <form action="POST">
@@ -67,7 +67,7 @@
                             <label for="message" class="form-label fw-medium">Pesan</label>
                             <textarea class="form-control" id="message" rows="4" placeholder="Tulis pesan Anda di sini"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary px-4 px-md-5 py-2" 
+                        <button type="submit" class="btn btn-primary px-4 px-md-5 py-2"
                                 style="background-color: #6D326D; border: none; border-radius: 15px;">
                             Kirim
                         </button>

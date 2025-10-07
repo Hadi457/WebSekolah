@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SchoolProfile;
 use App\Models\Teacher;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Http\Request;
@@ -11,9 +12,11 @@ use Illuminate\Support\Facades\Storage;
 class TeacherController extends Controller
 {
     public function index(){
+        $data['profile'] = SchoolProfile::first();
+
         $data['guru'] = Teacher::all();
         return view('guru', $data);
-    } 
+    }
     public function Store(Request $request){
         // Validasi Input
         $validate = $request->validate([

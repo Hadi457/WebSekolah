@@ -43,7 +43,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Tambah Guru</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Guru</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form action="{{route('guru-update', Crypt::encrypt($item->id))}}" method="post" enctype="multipart/form-data">
@@ -64,8 +64,8 @@
                             <div class="mb-3">
                                 <label class="form-label fw-semibold">Foto Saat Ini<span class="text-danger">*</span></label>
                                 <div class="mt-2">
-                                    <img src="{{ asset('storage/foto-teacher/' . $item->foto) }}" 
-                                        alt="{{ $item->nama_guru }}" 
+                                    <img src="{{ asset('storage/foto-teacher/' . $item->foto) }}"
+                                        alt="{{ $item->nama_guru }}"
                                         style="max-width: 100%; height: 100px; object-fit: cover; border-radius: 5px;">
                                     <p class="small text-muted mt-1">{{ $item->foto }}</p>
                                 </div>
@@ -100,9 +100,9 @@
                 <i class="fas fa-check-circle me-2"></i>
                 {{ Session::get('sukses') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            </div>  
+            </div>
         @endif
-        
+
         @if ($errors->any())
             <div class="alert alert-danger alert-dismissible fade show mb-1 mt-2" role="alert">
                 <i class="fas fa-exclamation-triangle me-2"></i>
@@ -131,7 +131,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($guru as $item)   
+                        @foreach ($guru as $item)
                             <tr>
                                 <td scope="row">{{$item->nip}}</td>
                                 <td>{{$item->nama_guru}}</td>

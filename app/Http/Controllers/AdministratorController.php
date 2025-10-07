@@ -28,6 +28,8 @@ class AdministratorController extends Controller
     }
     public function Home()
     {
+        $data['profile'] = SchoolProfile::first();
+
         // Ambil semua dari berita, guru, siswa dan eskul lalu kirim ke view home
         $data['siswacount'] = Student::all();
         $data['gurucount'] = Teacher::all();
@@ -50,6 +52,7 @@ class AdministratorController extends Controller
     }
     public function Berita($id = null)
     {
+        $data['profile'] = SchoolProfile::first();
         if ($id) {
             $id = $this->decrypId($id);
             $data['news'] = News::findOrFail($id);
@@ -60,6 +63,7 @@ class AdministratorController extends Controller
     }
     public function Guru($id = null)
     {
+        $data['profile'] = SchoolProfile::first();
         if ($id) {
             $id = $this->decrypId($id);
             $data['guru'] = Teacher::findOrFail($id);
@@ -70,6 +74,7 @@ class AdministratorController extends Controller
     }
     public function Siswa($id = null)
     {
+        $data['profile'] = SchoolProfile::first();
         if ($id) {
             $id = $this->decrypId($id);
             $data['siswa'] = Student::findOrFail($id);
@@ -81,6 +86,7 @@ class AdministratorController extends Controller
     }
     public function Galeri($id = null)
     {
+        $data['profile'] = SchoolProfile::first();
         if ($id) {
             $id = $this->decrypId($id);
             $data['galeri'] = Gallery::findOrFail($id);
@@ -97,6 +103,7 @@ class AdministratorController extends Controller
     }
     public function Eskul($id = null)
     {
+        $data['profile'] = SchoolProfile::first();
         if ($id) {
             $id = $this->decrypId($id);
             $data['eskul'] = Extracurricular::findOrFail($id);
@@ -107,6 +114,7 @@ class AdministratorController extends Controller
     }
     public function User($id = null)
     {
+        $data['profile'] = SchoolProfile::first();
         if ($id) {
             $id = $this->decrypId($id);
             $data['user'] = User::findOrFail($id);

@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SchoolProfile;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
     public function Index()
     {
-        return view('kontak');
+        $data['profile'] = SchoolProfile::first();
+        return view('kontak', $data);
     }
 }

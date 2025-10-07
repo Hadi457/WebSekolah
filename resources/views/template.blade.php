@@ -29,8 +29,8 @@
                 <nav class="navbar navbar-expand-lg py-2">
                     <div class="d-flex align-items-center gap-3">
                         <img src="{{ asset('asset/image/sman6logo.png')}}" class="img-fluid" width="45" height="45" alt="">
-                        <h3 class="text-white mb-0 d-none d-sm-block">SMA Negri 6 Jakarta</h3>
-                        <h3 class="text-white mb-0 d-block d-sm-none">SMA 6 Jakarta</h3>
+                        <h3 class="text-white mb-0 d-none d-sm-block">SMA 1</h3>
+                        <h3 class="text-white mb-0 d-block d-sm-none">SMA 1</h3>
                     </div>
                     <!-- tombol toggler -->
                     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -68,18 +68,18 @@
                 </nav>
             </div>
         </div>
-        
+
         <div class="container-fluid mt-4 pt-5 pe-0 ps-0 ">
             @yield('content')
         </div>
-        
+
         <footer class="footer text-white pt-5 pb-3 mt-5" style="background-color: #003F91">
             <div class="container">
                 <div class="row text-center text-md-start">
                     <div class="col-12 col-md-4 mb-4 mb-md-0">
                         <h5 class="fw-bold">Tentang Kami</h5>
                         <p class="small">
-                        SMA N 6 Jakarta adalah institusi pendidikan yang berkomitmen untuk memberikan pendidikan berkualitas tinggi dan membentuk karakter siswa menjadi individu yang berprestasi dan bertanggung jawab.
+                        SMA 1 adalah institusi pendidikan yang berkomitmen untuk memberikan pendidikan berkualitas tinggi dan membentuk karakter siswa menjadi individu yang berprestasi dan bertanggung jawab.
                         </p>
                     </div>
                     <div class="col-12 col-md-4 mb-4 mb-md-0">
@@ -94,7 +94,7 @@
                     <div class="col-12 col-md-4 mb-4 mb-md-0">
                         <h5 class="fw-bold">Kontak</h5>
                         <ul class="list-unstyled small">
-                            <li class="mb-1">Email : info@sman6jkt.sch.id</li>
+                            <li class="mb-1">Email : info@sman1.sch.id</li>
                             <li class="mb-1">Telpon : 021-7208762</li>
                             <li class="mb-1">Alamat : Jl. Mahakam 1 Blok C No. 2</li>
                             <li class="mt-3 mb-2">Ikuti Sosial Media Kami</li>
@@ -108,7 +108,7 @@
                     </div>
                 </div>
                 <hr class="border-white my-4">
-                <p class="text-center m-0 small">&copy; 2025 SMA Negri 6 Jakarta. All rights reserved.</p>
+                <p class="text-center m-0 small">&copy; 2025 SMA 1. All rights reserved.</p>
             </div>
         </footer>
     </body>

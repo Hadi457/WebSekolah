@@ -56,7 +56,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Tambah Eskul</h5>
+                        <h5 class="modal-title">Edit Eskul</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form action="{{route('eskul-update', Crypt::encrypt($item->id))}}" enctype="multipart/form-data" method="post">
@@ -86,8 +86,8 @@
                             <div class="mb-3">
                                 <label class="form-label">Gambar Saat Ini</label>
                                 <div class="mt-2">
-                                    <img src="{{ asset('storage/extracurricular-image/'.$item->gambar) }}" 
-                                        alt="{{ $item->nama_eskul }}" 
+                                    <img src="{{ asset('storage/extracurricular-image/'.$item->gambar) }}"
+                                        alt="{{ $item->nama_eskul }}"
                                         style="max-width: 100%; height: 100px; object-fit: cover; border-radius: 5px;">
                                     <p class="small text-muted mt-1">{{ $item->nama_eskul }}</p>
                                 </div>
@@ -116,9 +116,9 @@
                 <i class="fas fa-check-circle me-2"></i>
                 {{ Session::get('sukses') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            </div>  
+            </div>
         @endif
-        
+
         @if ($errors->any())
             <div class="alert alert-danger alert-dismissible fade show mb-1 mt-2" role="alert">
                 <i class="fas fa-exclamation-triangle me-2"></i>
@@ -131,7 +131,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
         @endif
-            
+
         <div class="bg-light p-3 rounded">
             <div class="table-responsive min-vh-100">
                 <table id="example" class="table w-100 table-striped">
@@ -146,7 +146,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($eskul as $item)   
+                        @foreach ($eskul as $item)
                             <tr>
                                 <td scope="row">{{$item->nama_eskul}}</td>
                                 <td>{{$item->pembina}}</td>
@@ -159,8 +159,8 @@
                                     <a data-bs-toggle="modal" data-bs-target="#editModal{{$item->id}}" class="btn bg-warning bg-opacity-25 text-warning" title="Edit">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a class="btn bg-danger bg-opacity-25 text-danger" 
-                                        href="{{ route('eskul-delete', Crypt::encrypt($item->id)) }}" 
+                                    <a class="btn bg-danger bg-opacity-25 text-danger"
+                                        href="{{ route('eskul-delete', Crypt::encrypt($item->id)) }}"
                                         onclick="return confirm('Hapus eskul {{ $item->nama_eskul }}?')"
                                         title="Hapus">
                                         <i class="fas fa-trash"></i>

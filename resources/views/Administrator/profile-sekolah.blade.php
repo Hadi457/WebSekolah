@@ -81,9 +81,9 @@
                 <i class="fas fa-check-circle me-2"></i>
                 {{ Session::get('sukses') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            </div>  
+            </div>
         @endif
-        
+
         @if ($errors->any())
             <div class="alert alert-danger alert-dismissible fade show mb-1 mt-2" role="alert">
                 <i class="fas fa-exclamation-triangle me-2"></i>
@@ -133,12 +133,12 @@
 
                     <div class="mb-4">
                         <h6 class="text-primary">Visi Misi Sekolah</h6>
-                        <p class="text-justify">{{ $profile->visi_misi }}</p>
+                        <p class="text-justify" style="white-space: pre-line;">{{ $profile->visi_misi }}</p>
                     </div>
 
                     <div>
                         <h6 class="text-primary">Sambutan Kepala Sekolah</h6>
-                        <p class="text-justify">{{ $profile->deskripsi }}</p>
+                        <p class="text-justify" style="white-space: pre-line;">{{ $profile->deskripsi }}</p>
                     </div>
                 </div>
             </div>

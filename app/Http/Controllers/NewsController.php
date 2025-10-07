@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\News;
+use App\Models\SchoolProfile;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,6 +14,8 @@ class NewsController extends Controller
 {
     public function Index()
     {
+        $data['profile'] = SchoolProfile::first();
+
         $data['berita'] = News::all();
         return view('berita', $data);
     }

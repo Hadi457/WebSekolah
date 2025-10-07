@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Extracurricular;
+use App\Models\SchoolProfile;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -12,6 +13,8 @@ class ExtracurricularController extends Controller
 {
     public function Index()
     {
+        $data['profile'] = SchoolProfile::first();
+
         // Mengambil semua data Eskul lalu dikirim ke view eskul
         $data['eskul'] = Extracurricular::all();
         return view('eskul', $data);
