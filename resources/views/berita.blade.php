@@ -2,7 +2,7 @@
 @section('content')
     <div class="container mt-5">
         <h1 class="fw-bold text-center mb-4">Berita {{ $profile->nama_sekolah }}</h1>
-        <p class="text-center text-muted mb-5">Dapatkan informasi dan kegiatan terkini seputar SMA Negeri 6 Jakarta. Kami selalu berkomitmen untuk berbagi kabar inspiratif dari lingkungan sekolah.</p>
+        <p class="text-center text-muted mb-5">Dapatkan informasi dan kegiatan terkini seputar {{ $profile->nama_sekolah }}. Kami selalu berkomitmen untuk berbagi kabar inspiratif dari lingkungan sekolah.</p>
         <div class="row mt-5">
             @foreach ($berita as $item)
                 <div class="col-lg-3 col-md-6 mb-4">

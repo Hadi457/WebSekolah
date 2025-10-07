@@ -39,7 +39,7 @@
     <!-- Berita Section -->
     <div id="news" class="container">
         <div class="text-center my-4 my-md-5">
-            <h3 class="mb-2">Berita Umum</h3>
+            <h3 class="mb-2">Berita Terbaru</h3>
             <div class="mx-auto" style="background-color: #003F91; width: 200px; height: 3px; border-radius: 20px;"></div>
         </div>
         <div class="row justify-content-center g-3 g-md-4">

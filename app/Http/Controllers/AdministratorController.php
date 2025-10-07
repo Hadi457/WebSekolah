@@ -15,10 +15,6 @@ use Illuminate\Support\Facades\Crypt;
 
 class AdministratorController extends Controller
 {
-    public function Template(){
-        $data['data'] = SchoolProfile::all();
-        return view('administrator.template', $data);
-    }
     public function decrypId($id){
         try {
             return Crypt::decrypt($id);
@@ -38,11 +34,13 @@ class AdministratorController extends Controller
         // Ambil 3 data terbaru dari berita, guru, dan galeri lalu kirim ke view home
         $data['berita'] = News::latest()->take(4)->get();
         $data['guru'] = Teacher::latest()->take(4)->get();
-        $data['galeri'] = Gallery::latest()->take(3)->get();
+        $data['galeri'] = Gallery::latest()->take(4)->get();
         return view('home', $data);
     }
     public function Index()
     {
+        $data['profile'] = SchoolProfile::first();
+
         $data['berita'] = News::all();
         $data['siswa'] = Student::all();
         $data['guru'] = Teacher::all();

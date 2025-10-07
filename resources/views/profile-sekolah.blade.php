@@ -2,7 +2,7 @@
 @section('content')
     <!-- Hero Section -->
     <div style="height: 450px; background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0)),
-    url('{{ asset('asset/image/1.jpeg')}}'); background-size: cover; background-position: center;"
+    url('{{ asset('asset/image/1.jpg')}}'); background-size: cover; background-position: center;"
     class="d-flex justify-content-center align-items-center flex-column text-center p-3">
         <h1 class="text-white fw-bold display-5 display-md-4 display-lg-3">Profil Sekolah</h1>
         <h5 class="text-white fw-semibold mt-2 mt-md-3 fs-6 fs-md-5">
@@ -94,7 +94,7 @@
             <div class="col-12 col-lg-6">
                 <h3 class="fw-bold fs-4 fs-md-3 ps-3" style="border-left: 5px solid #6D326D;">Lokasi</h3>
                 <p class="mt-3 mb-3">
-                    SMA Negeri 6 Jakarta berlokasi strategis di pusat kota, sehingga mudah diakses dari berbagai arah.
+                    {{ $profile->nama_sekolah}} berlokasi strategis di pusat kota, sehingga mudah diakses dari berbagai arah.
                     Letaknya yang berada di kawasan perkotaan menjadikan sekolah ini dekat dengan fasilitas umum,
                     seperti transportasi publik, pusat perbelanjaan, serta sarana pendidikan lainnya.
                 </p>

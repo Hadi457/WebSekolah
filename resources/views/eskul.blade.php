@@ -27,7 +27,7 @@
         <div class="text-center mb-4 mb-md-5">
             <h1 class="fw-bold mb-3">Ekstrakurikuler {{ $profile->nama_sekolah }}</h1>
             <p class="text-muted mx-auto" style="max-width: 600px;">
-                SMA 1 menyediakan berbagai kegiatan ekstrakurikuler untuk mengembangkan potensi,
+                {{ $profile->nama_sekolah }} menyediakan berbagai kegiatan ekstrakurikuler untuk mengembangkan potensi,
                 bakat, dan minat siswa. Melalui kegiatan ini, siswa belajar bekerja sama, berprestasi, dan berkarakter.
             </p>
         </div>

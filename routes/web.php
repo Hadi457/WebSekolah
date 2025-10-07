@@ -11,6 +11,8 @@ use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/template', [AdministratorController::class,'TemplateHome'])->name('template');
+Route::get('/template', [AdministratorController::class,'Template'])->name('template');
 Route::get('/', [AdministratorController::class,'Home'])->name('home');
 Route::get('/profile-sekolah', [SchoolProfileController::class,'Index'])->name('profile-sekolah');
 Route::get('/eskul', [ExtracurricularController::class, 'Index'])->name('eskul');

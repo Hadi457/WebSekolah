@@ -60,6 +60,8 @@ class NewsController extends Controller
     }
 
     public function BeritaDetail($id){
+        $data['profile'] = SchoolProfile::first();
+
         $data['news'] = News::with('user')->findOrFail($id);
         $data['terkini'] = News::orderBy('tanggal', 'desc')->limit(7)->get();
         $data['berita'] = News::orderBy('tanggal', 'desc')->limit(4)->get();

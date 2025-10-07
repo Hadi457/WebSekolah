@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="{{ asset('asset/bootstrap/css/bootstrap.min.css')}}">
         <link rel="stylesheet" href="{{ asset('asset/fontawesome/css/all.min.css')}}">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-        <title>SMAN 6 Jakarta</title>
+        <title>{{ $profile->nama_sekolah}}</title>
         <style>
             body {
                 font-family: 'Poppins', sans-serif;
@@ -28,9 +28,9 @@
             <div class="container">
                 <nav class="navbar navbar-expand-lg py-2">
                     <div class="d-flex align-items-center gap-3">
-                        <img src="{{ asset('asset/image/sman6logo.png')}}" class="img-fluid" width="45" height="45" alt="">
-                        <h3 class="text-white mb-0 d-none d-sm-block">SMA 1</h3>
-                        <h3 class="text-white mb-0 d-block d-sm-none">SMA 1</h3>
+                        <img src="{{ asset('storage/school-profile/' . $profile->logo)}}" class="img-fluid" width="45" height="45" alt="">
+                        <h3 class="text-white mb-0 d-none d-sm-block">{{ $profile->nama_sekolah }}</h3>
+                        <h3 class="text-white mb-0 d-block d-sm-none">{{ $profile->nama_sekolah }}</h3>
                     </div>
                     <!-- tombol toggler -->
                     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -79,7 +79,7 @@
                     <div class="col-12 col-md-4 mb-4 mb-md-0">
                         <h5 class="fw-bold">Tentang Kami</h5>
                         <p class="small">
-                        SMA 1 adalah institusi pendidikan yang berkomitmen untuk memberikan pendidikan berkualitas tinggi dan membentuk karakter siswa menjadi individu yang berprestasi dan bertanggung jawab.
+                        {{ $profile->nama_sekolah }} adalah institusi pendidikan yang berkomitmen untuk memberikan pendidikan berkualitas tinggi dan membentuk karakter siswa menjadi individu yang berprestasi dan bertanggung jawab.
                         </p>
                     </div>
                     <div class="col-12 col-md-4 mb-4 mb-md-0">
@@ -94,9 +94,9 @@
                     <div class="col-12 col-md-4 mb-4 mb-md-0">
                         <h5 class="fw-bold">Kontak</h5>
                         <ul class="list-unstyled small">
-                            <li class="mb-1">Email : info@sman1.sch.id</li>
-                            <li class="mb-1">Telpon : 021-7208762</li>
-                            <li class="mb-1">Alamat : Jl. Mahakam 1 Blok C No. 2</li>
+                            <li class="mb-1">Email : info@sma{{ $profile->nama_sekolah }}.sch.id</li>
+                            <li class="mb-1">Telpon : {{ $profile->kontak }}</li>
+                            <li class="mb-1">Alamat : {{ $profile->alamat }}</li>
                             <li class="mt-3 mb-2">Ikuti Sosial Media Kami</li>
                         </ul>
                         <div class="d-flex gap-3 justify-content-center justify-content-md-start social-icons">
@@ -108,7 +108,7 @@
                     </div>
                 </div>
                 <hr class="border-white my-4">
-                <p class="text-center m-0 small">&copy; 2025 SMA 1. All rights reserved.</p>
+                <p class="text-center m-0 small">&copy; 2025 {{ $profile->nama_sekolah }}. All rights reserved.</p>
             </div>
         </footer>
     </body>

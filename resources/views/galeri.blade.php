@@ -4,7 +4,7 @@
         <div class="text-center mb-4 mb-md-5">
             <h1 class="fw-bold mb-3">Galeri {{ $profile->nama_sekolah }}</h1>
             <p class="text-muted mx-auto" style="max-width: 600px;">
-                Kumpulan dokumentasi kegiatan, prestasi, dan momen berharga di lingkungan SMA 1.
+                Kumpulan dokumentasi kegiatan, prestasi, dan momen berharga di lingkungan {{ $profile->nama_sekolah }}.
                 Setiap gambar adalah cerita tentang semangat, kebersamaan, dan dedikasi warga sekolah.
             </p>
         </div>

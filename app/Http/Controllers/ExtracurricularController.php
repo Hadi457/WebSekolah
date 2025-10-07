@@ -20,6 +20,8 @@ class ExtracurricularController extends Controller
         return view('eskul', $data);
     }
     public function EskulDetail($id){
+        $data['profile'] = SchoolProfile::first();
+
         $data['eskul'] = Extracurricular::findOrFail($id);
         return view('eskul-detail', $data);
 
