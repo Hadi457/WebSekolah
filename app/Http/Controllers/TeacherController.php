@@ -24,6 +24,8 @@ class TeacherController extends Controller
             'nip'       => 'required|string|max:30|unique:teachers,nip',
             'foto'      => 'nullable|image|mimes:jpg,jpeg,png,webp|max:3072',
             'mapel'     => 'required|string|max:100',
+        ],[
+            'nip.unique' => 'Nomor NIP ini sudah terdaftar.',
         ]);
 
         // Upload & simpan gambar ke folder storage/foto-taecher

@@ -110,7 +110,6 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
         @endif
-
         <div class="bg-light p-3 rounded">
             <div class="table-responsive min-vh-100">
                 <table id="example" class="table w-100 table-striped">

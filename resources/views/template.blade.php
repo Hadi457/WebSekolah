@@ -7,6 +7,19 @@
         <link rel="stylesheet" href="{{ asset('asset/bootstrap/css/bootstrap.min.css')}}">
         <link rel="stylesheet" href="{{ asset('asset/fontawesome/css/all.min.css')}}">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+        <link href="https://cdn.datatables.net/v/dt/dt-2.0.2/datatables.min.css" rel="stylesheet">
+        <script src="https://cdn.datatables.net/v/dt/dt-2.0.2/datatables.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
+        <script src="https://cdn.datatables.net/2.0.2/js/dataTables.bootstrap5.js"></script>
+        <script src="https://cdn.datatables.net/responsive/3.0.0/js/dataTables.responsive.js"></script>
+        <script src="https://cdn.datatables.net/responsive/3.0.0/js/responsive.bootstrap5.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.datatables.net/2.0.2/css/dataTables.bootstrap5.css" rel="stylesheet">
+        <link href="https://cdn.datatables.net/responsive/3.0.0/css/responsive.bootstrap5.css" rel="stylesheet">
+        
         <title>{{ $profile->nama_sekolah}}</title>
         <style>
             body {
@@ -58,6 +71,9 @@
                                 <a class="nav-link px-2 px-lg-3" href="/guru">Guru</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link px-2 px-lg-3" href="/siswa">Siswa</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link px-2 px-lg-3" href="/profile-sekolah">Profil Sekolah</a>
                             </li>
                             <li class="nav-item">
@@ -89,6 +105,8 @@
                             <li class="mb-1"><a href="#" class="text-white text-decoration-none">Profil Sekolah</a></li>
                             <li class="mb-1"><a href="#" class="text-white text-decoration-none">Ekstrakulikuler</a></li>
                             <li class="mb-1"><a href="#" class="text-white text-decoration-none">Galeri</a></li>
+                            <li class="mb-1"><a href="#" class="text-white text-decoration-none">Siswa</a></li>
+                            <li class="mb-1"><a href="#" class="text-white text-decoration-none">Kontak</a></li>
                         </ul>
                     </div>
                     <div class="col-12 col-md-4 mb-4 mb-md-0">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SchoolProfile;
 use App\Models\Student;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Http\Request;
@@ -9,6 +10,12 @@ use Illuminate\Support\Facades\Crypt;
 
 class StudentController extends Controller
 {
+    public function Index(){
+        $data['profile'] = SchoolProfile::first();
+        $data['siswa'] = Student::all();
+
+        return view('siswa', $data);
+    }
     public function Store(Request $request){
         // Validasi Input
         $validate = $request->validate([
@@ -16,6 +23,9 @@ class StudentController extends Controller
             'nama_siswa'    => 'required|string|max:150',
             'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
             'tahun_masuk'   => 'required|digits:4|integer|min:2000|max:' . date('Y'),
+        ], [
+            'nisn.unique' => 'Nomor NISN ini sudah terdaftar.',
+            'nisn.digits' => 'Nomor NISN harus terdiri dari 10 digit angka.',
         ]);
 
 
@@ -49,6 +59,9 @@ class StudentController extends Controller
             'nama_siswa'    => 'required|string|max:150',
             'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
             'tahun_masuk'   => 'required|digits:4|integer|min:2000|max:' . date('Y'),
+        ],[
+            'nisn.unique' => 'Nomor NISN ini sudah terdaftar.',
+            'nisn.digits' => 'Nomor NISN harus 10 digits.',
         ]);
         $siswa = Student::findOrFail($id);
         // Siswa di Update

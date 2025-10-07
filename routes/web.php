@@ -22,6 +22,7 @@ Route::get('/kontak', [ContactController::class, 'Index'])->name('kontak');
 Route::get('/berita', [NewsController::class, 'Index'])->name('berita');
 Route::get('/berita/detail/{id}', [NewsController::class, 'BeritaDetail'])->name('berita-detail');
 Route::get('/guru', [TeacherController::class, 'Index'])->name('guru');
+Route::get('/siswa', [StudentController::class, 'Index'])->name('siswa');
 
 Route::middleware(['admin'])->group(function () {
     Route::get('/admin/dashboard', [AdministratorController::class, 'Index'])->name('dashboard');
