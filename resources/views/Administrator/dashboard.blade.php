@@ -158,13 +158,14 @@
         </div>
         <!-- Alert Messages -->
         @if (Session::get('sukses'))
-            <div class="alert alert-success alert-dismissible fade show mb-1 mt-2" role="alert">
-                <i class="fas fa-check-circle me-2"></i>
-                {{ Session::get('sukses') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            </div>  
+        <div class="alert alert-success alert-dismissible fade show mb-1 mt-2" role="alert">
+            <i class="fas fa-check-circle me-2"></i>
+            {{ Session::get('sukses') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
         @endif
-        
+
+        <!-- Alert Errors -->
         @if ($errors->any())
             <div class="alert alert-danger alert-dismissible fade show mb-1 mt-1" role="alert">
                 <i class="fas fa-exclamation-triangle me-2"></i>
@@ -229,7 +230,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="col-md-12 mb-4">
             <div class="card border-0 shadow-sm">
                 <div class="card-body">
